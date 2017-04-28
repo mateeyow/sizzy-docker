@@ -1,6 +1,7 @@
 # Sizzy
 A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io)
 
+![hello](http://i.imgur.com/BtyqVle.gif)
 ### Getting Started
 
 1. Install the dependencies:

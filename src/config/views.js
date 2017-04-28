@@ -12,7 +12,9 @@ const views = {
     onEnter: (route, params, store, queryParams) => {
       const { url } = queryParams;
       let hasInitialUrl = url && url.trim() !== "";
-      store.app.setUrl(hasInitialUrl ? url : "http://kitze.io");
+      store.app.setUrl(
+        hasInitialUrl ? url : `${window.location.protocol}//kitze.io`
+      );
     }
   })
 };

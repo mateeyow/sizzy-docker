@@ -17,7 +17,9 @@ const views = {
       let newUrl = hasUrlParam ? url : initialUrl;
 
       store.app.setUrl(newUrl);
-      store.app.setUrltoLoad(newUrl);
+
+      //if initial url is provided from query param, still check if it's http/https and inverse if needed
+      store.app.setUrltoLoad(newUrl, hasUrlParam, false);
     }
   })
 };

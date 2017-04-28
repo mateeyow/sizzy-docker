@@ -67,6 +67,7 @@ type Props = {
         top: deviceHeaderTotalHeight,
         left: 0,
         borderRadius: 3,
+        backgroundColor: 'white',
         ...theme.iframeStyle
       },
       width: `${iframeWidth}px`,

@@ -3,7 +3,10 @@ import type { DeviceSettings } from "config/types";
 import { observable, action, computed } from "mobx";
 import { toggleInArray } from "utils/array-utils";
 import { isWebUri } from "valid-url";
+import { isUrlSameProtocol, getOppositeProtocol } from "utils/url-utils";
 import allDevices from "config/devices";
+import store from "stores/store";
+import views from "config/views";
 
 //models
 import Settings from "stores/models/settings";
@@ -23,6 +26,7 @@ class AppStore {
   /* Observables */
   @observable themeIndex: number = 1;
   @observable url: string;
+  @observable urlToLoad: string;
   @observable filters: Array<string> = [
     ...map(DEVICE_TYPES, device => device),
     ...map(OS, os => os)
@@ -49,6 +53,36 @@ class AppStore {
   };
 
   @action setUrl = (url: string) => (this.url = url);
+  @action setUrltoLoad = (
+    urlToLoad: string,
+    redirectOnProtocolChange: boolean = false,
+    insertIntoUrl: boolean = false
+  ) => {
+    if (urlToLoad !== this.urlToLoad) {
+      let { protocol, host } = window.location;
+
+      let urlIsSameProtocol = isUrlSameProtocol(urlToLoad, protocol);
+      let oppositeProtocol = getOppositeProtocol(protocol);
+
+      let shouldRefreshPage =
+        !urlIsSameProtocol && redirectOnProtocolChange === true;
+
+      if (shouldRefreshPage && oppositeProtocol !== false) {
+        const newUrl = `${oppositeProtocol}//${host}?url=${urlToLoad}`;
+        return (window.location.href = newUrl);
+      }
+
+      this.urlToLoad = urlToLoad;
+
+      if (insertIntoUrl) {
+        store.router.goTo(views.home, {}, store, { url: this.urlToLoad });
+      }
+    }
+  };
+
+  @action loadCurrentUrl = () => {
+    this.setUrltoLoad(this.url, true, true);
+  };
 
   @action toggleFilter = (filterName: string) => {
     this.filters = toggleInArray(this.filters, filterName);
@@ -75,7 +109,7 @@ class AppStore {
   }
 
   @computed get isValidUrl(): boolean {
-    return isWebUri(this.url);
+    return isWebUri(this.urlToLoad);
   }
 
   /* Helpers */

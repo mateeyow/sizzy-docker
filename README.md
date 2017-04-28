@@ -6,7 +6,7 @@ A tool for developing responsive websites crazy-fast, made by [@thekitze](http:/
 ### Sharing with an url
 Add ```?url=http://your-url.com``` at the end of the url to share it with a preloaded url.
 
-Example: http://sizzy.co?url=https://preactjs.com
+Example: <a href="http://sizzy.co?url=https://preactjs.com" target="_blank">http://sizzy.co?url=https://preactjs.com</a>
 
 ### Getting Started
 

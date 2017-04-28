@@ -10,8 +10,9 @@ const views = {
     path: "/",
     component: <Home />,
     onEnter: (route, params, store, queryParams) => {
-      let hasInitUrl = queryParams.initurl && queryParams.initurl.trim() !== "";
-      store.app.setUrl(hasInitUrl ? queryParams.initurl : "http://kitze.io");
+      const { url } = queryParams;
+      let hasInitialUrl = url && url.trim() !== "";
+      store.app.setUrl(hasInitialUrl ? url : "http://kitze.io");
     }
   })
 };

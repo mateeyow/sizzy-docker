@@ -26,13 +26,13 @@ class HomeComponent extends Component {
 
   render() {
     const { store: { app }, children } = this.props;
-    const { theme, url, isVisible, settings, devices } = app;
+    const { theme, url, isVisible, settings, devices, isValidUrl } = app;
     const { zoom, orientation } = settings;
 
     return (
       <Home>
         <Toolbar />
-        {url &&
+        {isValidUrl &&
           <Devices>
             {devices.map((device, key) => (
               <Device

@@ -1,7 +1,13 @@
 # Sizzy
 A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io)
 
-![hello](http://i.imgur.com/BtyqVle.gif)
+![gif](http://i.imgur.com/BtyqVle.gif)
+
+### Sharing with an url
+Add ```?url=http://your-url.com``` at the end of the url to share it with a preloaded url.
+
+Example: http://sizzy.co?url=https://preactjs.com```
+
 ### Getting Started
 
 1. Install the dependencies:

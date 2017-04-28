@@ -2,6 +2,7 @@
 import type { DeviceSettings } from "config/types";
 import { observable, action, computed } from "mobx";
 import { toggleInArray } from "utils/array-utils";
+import { isWebUri } from "valid-url";
 import allDevices from "config/devices";
 
 //models
@@ -38,9 +39,7 @@ class AppStore {
 
   //update zoom/orientation values of all devices with the global settings
   @action updateAllDevices = (settings: DeviceSettings) => {
-    this.devices.forEach(device =>
-      device.settings.update(settings)
-    );
+    this.devices.forEach(device => device.settings.update(settings));
   };
 
   @action resetAllSettings = () => {
@@ -73,6 +72,10 @@ class AppStore {
 
   @computed get theme(): Object {
     return themes[Object.keys(themes)[this.themeIndex]];
+  }
+
+  @computed get isValidUrl(): boolean {
+    return isWebUri(this.url);
   }
 
   /* Helpers */

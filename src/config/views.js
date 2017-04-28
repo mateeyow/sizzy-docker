@@ -11,10 +11,13 @@ const views = {
     component: <Home />,
     onEnter: (route, params, store, queryParams) => {
       const { url } = queryParams;
-      let hasInitialUrl = url && url.trim() !== "";
-      store.app.setUrl(
-        hasInitialUrl ? url : `${window.location.protocol}//kitze.io`
-      );
+
+      let hasUrlParam = url && url.trim() !== "";
+      let initialUrl = `${window.location.protocol}//kitze.io`;
+      let newUrl = hasUrlParam ? url : initialUrl;
+
+      store.app.setUrl(newUrl);
+      store.app.setUrltoLoad(newUrl);
     }
   })
 };

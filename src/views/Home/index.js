@@ -26,7 +26,7 @@ class HomeComponent extends Component {
 
   render() {
     const { store: { app }, children } = this.props;
-    const { theme, url, isVisible, settings, devices, isValidUrl } = app;
+    const { theme, urlToLoad, url, isVisible, settings, devices, isValidUrl } = app;
     const { zoom, orientation } = settings;
 
     return (
@@ -42,6 +42,7 @@ class HomeComponent extends Component {
                 zoom={zoom}
                 theme={theme}
                 url={url}
+                urlToLoad={urlToLoad}
                 device={device}
               >
                 {children}

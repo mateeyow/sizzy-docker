@@ -1,6 +1,7 @@
 // @flow
 import typeof store from "stores/store";
 import type { InputEvent } from "config/types";
+import { onEnter } from "utils/input-utils";
 
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
@@ -18,7 +19,9 @@ import {
   AppName,
   Filters,
   ButtonIcon,
-  UrlInput
+  UrlInput,
+  UrlWrap,
+  GoIcon
 } from "./styles";
 import { OS, DEVICE_TYPES } from "config/tags";
 
@@ -49,12 +52,20 @@ class ToolbarComponent extends Component {
 
         <ToolbarLeft>
           <AppName> Sizzy </AppName>
-          <UrlInput
-            onChange={(e: InputEvent) => app.setUrl(e.target.value)}
-            value={app.url}
-            type="text"
-            placeholder="Enter URL"
-          />
+          <UrlWrap>
+            <UrlInput
+              {...onEnter(app.loadCurrentUrl)}
+              onChange={(e: InputEvent) => app.setUrl(e.target.value)}
+              value={app.url}
+              type="text"
+              placeholder="Enter URL"
+            />
+            <GoIcon
+              onClick={app.loadCurrentUrl}
+              title="Go"
+              name="arrow-circle-right"
+            />
+          </UrlWrap>
         </ToolbarLeft>
 
         <Filters>

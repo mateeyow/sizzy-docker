@@ -28,7 +28,8 @@ type Props = {
   children?: React.Element<*>,
   theme: Object,
   visible: boolean,
-  url: string
+  url: string,
+  urlToLoad: string
 };
 
 @observer class DeviceComponent extends Component {
@@ -41,7 +42,8 @@ type Props = {
       children,
       theme,
       visible,
-      url
+      url,
+      urlToLoad
     } = this.props;
 
     const { orientation, zoom, showSizes } = settings;
@@ -87,11 +89,8 @@ type Props = {
         <Header>
           <Buttons>
             {!smallZoom &&
-              <Button onClick={() => alert('Soon! 🙈')} title="Settings">
-                <ButtonIcon
-                  className={buttonIconClassname}
-                  name="cog"
-                />
+              <Button onClick={() => alert("Soon! 🙈")} title="Settings">
+                <ButtonIcon className={buttonIconClassname} name="cog" />
               </Button>}
             <Button
               onClick={settings.toggleOrientation}
@@ -112,7 +111,7 @@ type Props = {
           </Size>
         </Header>
 
-        {url && <iframe src={url} {...frameProps} />}
+        {urlToLoad && <iframe src={urlToLoad} {...frameProps} />}
 
         {/* Allows Sizzy to be used as a component/plugin in react-storybook, etc */}
         {hasChildren &&

@@ -62,12 +62,13 @@ class AppStore {
       let { protocol, host } = window.location;
 
       let urlIsSameProtocol = isUrlSameProtocol(urlToLoad, protocol);
+      let oppositeProtocol = getOppositeProtocol(protocol);
 
       let shouldRefreshPage =
         !urlIsSameProtocol && redirectOnProtocolChange === true;
 
-      if (shouldRefreshPage) {
-        const newUrl = `${getOppositeProtocol(protocol)}//${host}?url=${urlToLoad}`;
+      if (shouldRefreshPage && oppositeProtocol !== false) {
+        const newUrl = `${oppositeProtocol}//${host}?url=${urlToLoad}`;
         return (window.location.href = newUrl);
       }
 

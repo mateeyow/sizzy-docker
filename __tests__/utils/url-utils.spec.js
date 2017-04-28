@@ -34,6 +34,9 @@ describe("Utils", () => {
     it("should return opposite http when https", () => {
       expect(getOppositeProtocol('http:')).toEqual('https:');
     });
+    it("should return false when used with invalid value", () => {
+      expect(getOppositeProtocol('asdgasdgasdgasd')).toEqual(false);
+    });
   });
 
 });

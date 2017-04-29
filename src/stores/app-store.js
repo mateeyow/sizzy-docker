@@ -1,26 +1,26 @@
 // @flow
-import type { DeviceSettings } from "config/types";
-import { observable, action, computed } from "mobx";
-import { toggleInArray } from "utils/array-utils";
-import { isWebUri } from "valid-url";
-import { isUrlSameProtocol, getOppositeProtocol } from "utils/url-utils";
-import allDevices from "config/devices";
-import store from "stores/store";
-import views from "config/views";
+import type { DeviceSettings } from 'config/types';
+import { observable, action, computed } from 'mobx';
+import { toggleInArray } from 'utils/array-utils';
+import { isWebUri } from 'valid-url';
+import { isUrlSameProtocol, getOppositeProtocol } from 'utils/url-utils';
+import allDevices from 'config/devices';
+import store from 'stores/store';
+import views from 'config/views';
 
 //models
-import Settings from "stores/models/settings";
-import Device from "stores/models/device";
+import Settings from 'stores/models/settings';
+import Device from 'stores/models/device';
 
 //config
-import themes from "styles/themes";
-import devices from "config/devices";
-import { OS, DEVICE_TYPES } from "config/tags";
+import themes from 'styles/themes';
+import devices from 'config/devices';
+import { OS, DEVICE_TYPES } from 'config/tags';
 
 //lodash
-import every from "lodash/every";
-import filter from "lodash/filter";
-import map from "lodash/map";
+import every from 'lodash/every';
+import filter from 'lodash/filter';
+import map from 'lodash/map';
 
 class AppStore {
   /* Observables */
@@ -29,14 +29,14 @@ class AppStore {
   @observable urlToLoad: string;
   @observable filters: Array<string> = [
     ...map(DEVICE_TYPES, device => device),
-    ...map(OS, os => os)
+    ...map(OS, os => os),
   ];
   settings: Settings = new Settings(true);
 
   /* Props */
   @observable devices: Array<Device> = map(
     allDevices,
-    device => new Device(device)
+    device => new Device(device),
   );
 
   /* Actions */
@@ -56,7 +56,7 @@ class AppStore {
   @action setUrltoLoad = (
     urlToLoad: string,
     redirectOnProtocolChange: boolean = false,
-    insertIntoUrl: boolean = false
+    insertIntoUrl: boolean = false,
   ) => {
     if (urlToLoad !== this.urlToLoad) {
       let { protocol, host } = window.location;
@@ -99,7 +99,7 @@ class AppStore {
 
   @computed get filteredDeviceNames(): Array<string> {
     let filteredDevices = filter(devices, device =>
-      every(device.tags, tag => this.filters.indexOf(tag) !== -1)
+      every(device.tags, tag => this.filters.indexOf(tag) !== -1),
     );
     return map(filteredDevices, device => device.name);
   }

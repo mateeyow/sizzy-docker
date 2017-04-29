@@ -1,10 +1,10 @@
 // @flow
-import typeof store from "stores/store";
-import type { InputEvent } from "config/types";
-import { onEnter } from "utils/input-utils";
+import typeof store from 'stores/store';
+import type { InputEvent } from 'config/types';
+import { onEnter } from 'utils/input-utils';
 
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
 //styled-components
 import {
@@ -21,21 +21,21 @@ import {
   ButtonIcon,
   UrlInput,
   UrlWrap,
-  GoIcon
-} from "./styles";
-import { OS, DEVICE_TYPES } from "config/tags";
+  GoIcon,
+} from './styles';
+import { OS, DEVICE_TYPES } from 'config/tags';
 
 //components
-import FilterIcon from "components/FilterIcon";
+import FilterIcon from 'components/FilterIcon';
 
 type Props = {
-  store: any | store
+  store: any | store,
 };
-@inject("store")
+@inject('store')
 @observer
 class ToolbarComponent extends Component {
   static defaultProps = {
-    store: null
+    store: null,
   };
 
   props: Props;

@@ -1,9 +1,8 @@
 // @flow
-import { observable, action, computed } from "mobx";
-import Settings from "stores/models/settings";
+import { observable, action, computed } from 'mobx';
+import Settings from 'stores/models/settings';
 
 class Device {
-
   name: ?string;
   tags: ?Array<string>;
   width: ?number;
@@ -12,14 +11,13 @@ class Device {
 
   settings: Settings = new Settings();
 
-  constructor(device: Object){
+  constructor(device: Object) {
     this.name = device.name;
     this.tags = device.tags;
     this.width = device.width;
     this.height = device.height;
     this.iconName = device.iconName;
   }
-
 }
 
 export default Device;

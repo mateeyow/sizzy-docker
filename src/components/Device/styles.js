@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import flex from "styles/flex";
-import { deviceHeader } from "styles/sizes";
-import { colorTransition } from "styles/shared";
-import { rotateIconOnOrientationChange, whenHovering } from "utils/sc-utils";
+import styled from 'styled-components';
+import flex from 'styles/flex';
+import { deviceHeader } from 'styles/sizes';
+import { colorTransition } from 'styles/shared';
+import { rotateIconOnOrientationChange, whenHovering } from 'utils/sc-utils';
 
 //classnames
 export const buttonIconClassname = 'c-device__button-icon';
@@ -10,12 +10,12 @@ export const buttonIconClassname = 'c-device__button-icon';
 const sizes = {
   button: {
     size: 25,
-    iconSize: 18
-  }
+    iconSize: 18,
+  },
 };
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 export const Device = styled.div`
   ${flex.vertical}

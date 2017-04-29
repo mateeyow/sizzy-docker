@@ -1,5 +1,5 @@
-import PROTOCOLS from "config/protocols";
-import { isHttpsUri, isHttpUri } from "valid-url";
+import PROTOCOLS from 'config/protocols';
+import { isHttpsUri, isHttpUri } from 'valid-url';
 
 export const isUrlSameProtocol = (url: string, protocol: string) => {
   let isHttp = protocol === PROTOCOLS.HTTP && !!isHttpUri(url);

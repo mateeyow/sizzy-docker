@@ -1,17 +1,17 @@
-import styled from "styled-components";
-import flex from "styles/flex";
-import { toolbarHeight } from "styles/sizes";
-import { colorTransition } from "styles/shared";
-import { rotateIconOnOrientationChange, iconSize } from "utils/sc-utils";
+import styled from 'styled-components';
+import flex from 'styles/flex';
+import { toolbarHeight } from 'styles/sizes';
+import { colorTransition } from 'styles/shared';
+import { rotateIconOnOrientationChange, iconSize } from 'utils/sc-utils';
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 const sizes = {
   goIcon: {
     size: 20,
-    offsetRight: 8
-  }
+    offsetRight: 8,
+  },
 };
 
 export const Toolbar = styled.div`
@@ -35,7 +35,7 @@ export const Toolbar = styled.div`
 export const ToolbarButton = styled.button`
  margin-right: 10px;
  min-width: 40px;
- cursor: ${p => (p.disabled ? "not-allowed" : "pointer")};
+ cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
  background: none;
  border: none;
  outline: none;
@@ -102,7 +102,7 @@ export const UrlInput = styled.input`
   width: 100%;
   height: 100%;
   margin-right: 35px;
-  padding: 8px ${sizes.goIcon.size + (sizes.goIcon.offsetRight*2)}px 8px 8px;
+  padding: 8px ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px 8px 8px;
   border: none;
   border-bottom-color: #825acb;
   border-radius: 5px;

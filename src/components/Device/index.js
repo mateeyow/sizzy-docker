@@ -1,15 +1,15 @@
 // @flow
-import Settings from "stores/models/settings";
-import DeviceType from "stores/models/device";
+import Settings from 'stores/models/settings';
+import DeviceType from 'stores/models/device';
 
-import React, { Component } from "react";
-import { observable, action } from "mobx";
-import { observer } from "mobx-react";
-import { deviceHeader } from "styles/sizes";
-import ORIENTATIONS from "config/orientations";
+import React, { Component } from 'react';
+import { observable, action } from 'mobx';
+import { observer } from 'mobx-react';
+import { deviceHeader } from 'styles/sizes';
+import ORIENTATIONS from 'config/orientations';
 
 //external
-import Framed from "react-frame-component";
+import Framed from 'react-frame-component';
 
 //styled-components
 import {
@@ -20,8 +20,8 @@ import {
   Device,
   Buttons,
   Size,
-  buttonIconClassname
-} from "./styles";
+  buttonIconClassname,
+} from './styles';
 
 type Props = {
   device: DeviceType,
@@ -29,7 +29,7 @@ type Props = {
   theme: Object,
   visible: boolean,
   url: string,
-  urlToLoad: string
+  urlToLoad: string,
 };
 
 @observer class DeviceComponent extends Component {
@@ -43,7 +43,7 @@ type Props = {
       theme,
       visible,
       url,
-      urlToLoad
+      urlToLoad,
     } = this.props;
 
     const { orientation, zoom, showSizes } = settings;
@@ -61,24 +61,24 @@ type Props = {
     const frameProps = {
       style: {
         transform: `scale(${zoomValue})`,
-        transformOrigin: "top left",
-        position: "absolute",
-        border: "none",
+        transformOrigin: 'top left',
+        position: 'absolute',
+        border: 'none',
         top: deviceHeaderTotalHeight,
         left: 0,
         borderRadius: 3,
         backgroundColor: 'white',
-        ...theme.iframeStyle
+        ...theme.iframeStyle,
       },
       width: `${iframeWidth}px`,
-      height: `${iframeHeight}px`
+      height: `${iframeHeight}px`,
     };
 
     const deviceStyle = {
       width: iframeWidth * zoomValue,
       height: iframeHeight * zoomValue + deviceHeaderTotalHeight,
-      position: "relative",
-      display: visible ? "flex" : "none" //hide/show iframe instead of completely destroying it, much faster.
+      position: 'relative',
+      display: visible ? 'flex' : 'none', //hide/show iframe instead of completely destroying it, much faster.
     };
 
     const hasChildren = !url && children;
@@ -90,7 +90,7 @@ type Props = {
         <Header>
           <Buttons>
             {!smallZoom &&
-              <Button onClick={() => alert("Soon! 🙈")} title="Settings">
+              <Button onClick={() => alert('Soon! 🙈')} title="Settings">
                 <ButtonIcon className={buttonIconClassname} name="cog" />
               </Button>}
             <Button

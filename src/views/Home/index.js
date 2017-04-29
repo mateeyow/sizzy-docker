@@ -1,32 +1,40 @@
 // @flow
-import typeof store from "stores/store";
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
+import typeof store from 'stores/store';
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
 //styled-components
-import { Home, Devices } from "./styles";
+import { Home, Devices } from './styles';
 
 //components
-import Device from "components/Device";
-import Toolbar from "components/Toolbar";
+import Device from 'components/Device';
+import Toolbar from 'components/Toolbar';
 
 type Props = {
   store: any | store,
-  children?: React.Element<*>
+  children?: React.Element<*>,
 };
 
-@inject("store")
+@inject('store')
 @observer
 class HomeComponent extends Component {
   props: Props;
 
   static defaultProps = {
-    store: null
+    store: null,
   };
 
   render() {
     const { store: { app }, children } = this.props;
-    const { theme, urlToLoad, url, isVisible, settings, devices, isValidUrl } = app;
+    const {
+      theme,
+      urlToLoad,
+      url,
+      isVisible,
+      settings,
+      devices,
+      isValidUrl,
+    } = app;
     const { zoom, orientation } = settings;
 
     return (

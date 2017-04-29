@@ -28,7 +28,7 @@ export const flex = {
     align-items: center;
     justify-content: center;
   `,
-  centerVerticalReset:`
+  centerVerticalReset: `
     align-items: initial;
     justify-content: initial;
   `,
@@ -49,7 +49,7 @@ export const flex = {
   `,
   alignEnd: `
     align-items: flex-end;
-  `
+  `,
 };
 
 export default flex;

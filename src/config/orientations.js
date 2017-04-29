@@ -1,6 +1,6 @@
 const ORIENTATIONS = {
   PORTRAIT: 'portrait',
-  LANDSCAPE: 'landscape'
-}
+  LANDSCAPE: 'landscape',
+};
 
 export default ORIENTATIONS;

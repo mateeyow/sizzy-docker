@@ -1,5 +1,5 @@
 // @flow
-import ORIENTATIONS from "config/orientations";
+import ORIENTATIONS from 'config/orientations';
 
 export const getOppositeOrientation = (orientation: string) =>
   (orientation === ORIENTATIONS.PORTRAIT

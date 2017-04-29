@@ -1,11 +1,11 @@
 // @flow
-import type { InputEvent, DeviceSettings } from "config/types";
+import type { InputEvent, DeviceSettings } from 'config/types';
 
-import store from "stores/store";
+import store from 'stores/store';
 
-import { observable, action, computed } from "mobx";
-import ORIENTATIONS from "config/orientations";
-import { getOppositeOrientation } from "utils/utils";
+import { observable, action, computed } from 'mobx';
+import ORIENTATIONS from 'config/orientations';
+import { getOppositeOrientation } from 'utils/utils';
 
 class Settings {
   constructor(global: ?boolean) {
@@ -72,7 +72,7 @@ class Settings {
   getValues = (): DeviceSettings => ({
     zoom: this.zoom,
     showSizes: this.showSizes,
-    orientation: this.orientation
+    orientation: this.orientation,
   });
 }
 

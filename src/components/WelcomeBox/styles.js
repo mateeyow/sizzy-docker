@@ -18,7 +18,7 @@ export const WelcomeBox = styled.div`
   ${flex.vertical}
   ${flex.centerVertical}
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - ${toolbarHeight}px);
   flex: 1;
   color: white;
   position: absolute;
@@ -32,10 +32,10 @@ export const WelcomeBox = styled.div`
 `;
 
 export const Globe = styled($Icon)`
-  ${iconSize(170)}
+  font-size: 170px !important;
   opacity: 0.1;
   position: absolute;
-  transform: translateY(${p => p.loading ? 0 : -180}px) ${p => cond(p.loading, `scale(1.5)`)};
+  transform: translateY(${p => p.loading ? 0 : -165}px) ${p => cond(p.loading, `scale(1.5)`)};
   transition: all 500ms linear;
   
   ${p => cond(p.loading, `

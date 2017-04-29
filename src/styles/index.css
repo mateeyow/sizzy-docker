@@ -11,6 +11,13 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body.hide-scroll {
+  max-height: 100vh;
+  height: 100vh;
+  position: fixed;
 }
 
 #root {
@@ -23,4 +30,22 @@ body {
 
 *, *:after, *:before {
   box-sizing: border-box;
+}
+
+.fadeout-enter {
+  opacity: 0.01;
+}
+
+.fadeout-enter.fadeout-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fadeout-leave {
+  opacity: 1;
+}
+
+.fadeout-leave.fadeout-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

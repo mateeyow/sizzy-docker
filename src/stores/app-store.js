@@ -82,6 +82,7 @@ class AppStore {
       this.showLoadingAnimation();
 
       this.urlToLoad = urlToLoad;
+      this.url = urlToLoad;
 
       if (insertIntoUrl) {
         store.router.goTo(views.home, {}, store, { url: this.urlToLoad });
@@ -93,7 +94,7 @@ class AppStore {
     this.loading = true;
     setTimeout(() => {
         this.loading = false;
-    }, 3000);
+    }, 2000);
   }
 
   @action loadCurrentUrl = () => {

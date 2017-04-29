@@ -1,5 +1,6 @@
 // @flow
 import typeof store from "stores/store";
+import type {InputEvent} from 'config/types';
 
 import React, { Component } from "react";
 import { onEnter } from "utils/input-utils";
@@ -11,7 +12,7 @@ import { UrlBar, UrlInput, GoIcon } from "./styles";
 type Props = {
   store: any | store,
   styles: Object,
-  className: "string"
+  className: ?string
 };
 
 @inject("store")
@@ -21,7 +22,8 @@ class UrlBarComponent extends Component {
 
   static defaultProps = {
     store: null,
-    styles: {}
+    styles: {},
+    className: ''
   };
 
   render() {

@@ -5,7 +5,9 @@
   "devDependencies": {
     "custom-react-scripts": "0.0.21",
     "flow-bin": "^0.45.0",
+    "husky": "^0.13.3",
     "jest": "^19.0.2",
+    "lint-staged": "^3.4.1",
     "plop": "^1.7.3",
     "prettier": "^1.2.2"
   },
@@ -29,12 +31,19 @@
       "src"
     ]
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prebuild": "yarn flow && yarn test",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "test": "jest -i"
+    "test": "jest -i",
+    "precommit": "lint-staged"
   }
 }

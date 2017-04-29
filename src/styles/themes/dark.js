@@ -15,7 +15,7 @@ const dark = {
   `,
   urlInputStyle: `
     background-color: #211f21;
-    border: 1px solid black;
+    border: 1px solid #171717;
     color: #c7c7c7;
   `
 };

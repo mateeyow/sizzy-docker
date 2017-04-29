@@ -27,6 +27,8 @@ class AppStore {
   @observable themeIndex: number = 1;
   @observable url: string;
   @observable urlToLoad: string;
+  @observable loading: boolean = false;
+  @observable showWelcomeContent: boolean = true;
   @observable filters: Array<string> = [
     ...map(DEVICE_TYPES, device => device),
     ...map(OS, os => os)
@@ -61,6 +63,12 @@ class AppStore {
     if (urlToLoad !== this.urlToLoad) {
       let { protocol, host } = window.location;
 
+      //if invalid url (doesn't have protcol), try to append current protocol
+      if (!isWebUri(urlToLoad)) {
+        const urlWithProtocol = `${protocol}//${urlToLoad}`;
+        urlToLoad = urlWithProtocol;
+      }
+
       let urlIsSameProtocol = isUrlSameProtocol(urlToLoad, protocol);
       let oppositeProtocol = getOppositeProtocol(protocol);
 
@@ -72,13 +80,25 @@ class AppStore {
         return (window.location.href = newUrl);
       }
 
+      this.showLoadingAnimation();
+
       this.urlToLoad = urlToLoad;
+      this.url = urlToLoad;
 
       if (insertIntoUrl) {
         store.router.goTo(views.home, {}, store, { url: this.urlToLoad });
       }
     }
   };
+
+  @action showLoadingAnimation = () => {
+    this.loading = true;
+    this.showWelcomeContent = false;
+
+    setTimeout(() => {
+        this.loading = false;
+    }, 2000);
+  }
 
   @action loadCurrentUrl = () => {
     this.setUrltoLoad(this.url, true, true);
@@ -94,6 +114,14 @@ class AppStore {
     let newThemeIndex = this.themeIndex + 1;
     this.themeIndex = newThemeIndex >= themeKeys.length ? 0 : newThemeIndex;
   };
+
+  @action resetToHome = () => window.location.href = window.location.origin;
+
+  @action loadExampleUrl = () => {
+    const exampleUrl = `${window.location.protocol}//kitze.io`;
+    this.setUrl(exampleUrl);
+    this.setUrltoLoad(exampleUrl, false, true);
+  }
 
   /* Computed */
 

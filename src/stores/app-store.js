@@ -28,6 +28,7 @@ class AppStore {
   @observable url: string;
   @observable urlToLoad: string;
   @observable loading: boolean = false;
+  @observable showWelcomeContent: boolean = true;
   @observable filters: Array<string> = [
     ...map(DEVICE_TYPES, device => device),
     ...map(OS, os => os)
@@ -92,6 +93,8 @@ class AppStore {
 
   @action showLoadingAnimation = () => {
     this.loading = true;
+    this.showWelcomeContent = false;
+
     setTimeout(() => {
         this.loading = false;
     }, 2000);

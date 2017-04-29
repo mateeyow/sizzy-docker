@@ -28,13 +28,13 @@ class WelcomeBoxComponent extends Component {
   render() {
     const { store } = this.props;
     const { app } = store;
-    const { loading } = app;
+    const { loading, showWelcomeContent} = app;
 
     return (
       <WelcomeBox>
         <Globe loading={loading} name="globe" />
 
-        <Content loading={loading}>
+        <Content show={showWelcomeContent}>
           <IntroText> Welcome to Sizzy! Enter an url to start: </IntroText>
 
           <ThemeProvider theme={themes.dark}>

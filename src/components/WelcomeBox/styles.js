@@ -73,8 +73,8 @@ export const Content = styled.div`
   ${flex.vertical}
   ${flex.centerVertical}
   transition: all 500ms linear;
-  opacity: ${p => (p.loading ? 0 : 1)};
-  transform: translateY(${p => p.loading ? 300 : 0}px) ${p => cond(p.loading, `scale(0.5)`)};
+  opacity: ${p => (p.show ? 1 : 0)};
+  transform: translateY(${p => p.show ? 0 : 300}px) ${p => cond(!p.show, `scale(0.5)`)};
 `;
 
 /* Size overrides for internal elements of other components */

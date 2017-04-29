@@ -1,7 +1,5 @@
 // @flow
 import typeof store from "stores/store";
-import type { InputEvent } from "config/types";
-import { onEnter } from "utils/input-utils";
 
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
@@ -18,19 +16,18 @@ import {
   ToolbarLeft,
   AppName,
   Filters,
-  ButtonIcon,
-  UrlInput,
-  UrlWrap,
-  GoIcon
+  ButtonIcon
 } from "./styles";
 import { OS, DEVICE_TYPES } from "config/tags";
 
 //components
 import FilterIcon from "components/FilterIcon";
+import UrlBar from "components/UrlBar";
 
 type Props = {
   store: any | store
 };
+
 @inject("store")
 @observer
 class ToolbarComponent extends Component {
@@ -42,7 +39,7 @@ class ToolbarComponent extends Component {
 
   render() {
     const { store: { app } } = this.props;
-    const { filters, settings } = app;
+    const { filters, settings, isValidUrl } = app;
     const { zoom, orientation } = settings;
 
     const smallZoom = zoom < 50;
@@ -51,21 +48,8 @@ class ToolbarComponent extends Component {
       <Toolbar>
 
         <ToolbarLeft>
-          <AppName> Sizzy </AppName>
-          <UrlWrap>
-            <UrlInput
-              {...onEnter(app.loadCurrentUrl)}
-              onChange={(e: InputEvent) => app.setUrl(e.target.value)}
-              value={app.url}
-              type="text"
-              placeholder="Enter URL"
-            />
-            <GoIcon
-              onClick={app.loadCurrentUrl}
-              title="Go"
-              name="arrow-circle-right"
-            />
-          </UrlWrap>
+          <AppName onClick={app.resetToHome}> Sizzy </AppName>
+          {isValidUrl && <UrlBar />}
         </ToolbarLeft>
 
         <Filters>

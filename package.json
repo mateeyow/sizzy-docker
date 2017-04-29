@@ -33,7 +33,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prebuild": "yarn flow && yarn test",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",
     "test": "jest -i"

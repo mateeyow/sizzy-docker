@@ -11,12 +11,12 @@ class AppComponent extends Component {
   //return the currentView (src/views/Home) for now until there are more pages, or Sizzy is used as a plugin for react-storybook
   render() {
     const { store: { router, app } } = this.props;
-    const { loading } = app;
+    const { loading, isValidUrl } = app;
 
     return (
       <ThemeProvider theme={app.theme}>
         <div>
-          <Body className={loading ? "hide-scroll" : ""} />
+          <Body className={(loading || !isValidUrl) ? "hide-scroll" : ""} />
           {router.currentView && router.currentView.component}
         </div>
       </ThemeProvider>

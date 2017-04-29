@@ -32,11 +32,10 @@ export const WelcomeBox = styled.div`
 `;
 
 export const Globe = styled($Icon)`
-  ${iconSize(150)}
+  ${iconSize(170)}
   opacity: 0.1;
-  margin-bottom: 30px;
   position: absolute;
-  transform: translateY(${p => p.loading ? 0 : -150}px) ${p => cond(p.loading, `scale(1.5)`)};
+  transform: translateY(${p => p.loading ? 0 : -180}px) ${p => cond(p.loading, `scale(1.5)`)};
   transition: all 500ms linear;
   
   ${p => cond(p.loading, `

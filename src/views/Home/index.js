@@ -54,7 +54,7 @@ class HomeComponent extends Component {
           <ReactCSSTransitionGroup
             transitionName="fadeout"
             transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}
+            transitionLeaveTimeout={400}
           >
             {(!isValidUrl || loading) && <WelcomeBox />}
           </ReactCSSTransitionGroup>

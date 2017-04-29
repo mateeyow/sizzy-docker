@@ -46,6 +46,6 @@ body.hide-scroll {
 }
 
 .fadeout-leave.fadeout-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  opacity: 0;
+  transition: opacity 400ms ease-in;
 }

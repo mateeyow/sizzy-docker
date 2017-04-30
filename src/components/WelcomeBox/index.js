@@ -1,22 +1,29 @@
 // @flow
-import typeof store from "stores/store";
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
-import themes from "styles/themes";
+import typeof store from 'stores/store';
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+import themes from 'styles/themes';
 
 //styled-components
-import { WelcomeBox, Globe, IntroText, ExampleLink, UrlBar, Content } from "./styles";
+import {
+  WelcomeBox,
+  Globe,
+  IntroText,
+  ExampleLink,
+  UrlBar,
+  Content
+} from './styles';
 
 //styles
-import { UrlInputStyles } from "./styles";
+import { UrlInputStyles } from './styles';
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 
 type Props = {
   store: any | store
 };
 
-@inject("store")
+@inject('store')
 @observer
 class WelcomeBoxComponent extends Component {
   props: Props;
@@ -28,7 +35,7 @@ class WelcomeBoxComponent extends Component {
   render() {
     const { store } = this.props;
     const { app } = store;
-    const { loading, showWelcomeContent} = app;
+    const { loading, showWelcomeContent } = app;
 
     return (
       <WelcomeBox>

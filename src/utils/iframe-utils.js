@@ -1,9 +1,9 @@
-import each from "lodash/each";
+import each from 'lodash/each';
 
 export const copyStylesToIframes = () => {
   const head = document.head;
-  const allStyles = head.getElementsByTagName("style");
-  const allChildIframes = document.getElementsByTagName("iframe");
+  const allStyles = head.getElementsByTagName('style');
+  const allChildIframes = document.getElementsByTagName('iframe');
   each(allChildIframes, iframe => {
     each(allStyles, style => {
       const head = iframe.contentDocument.head;
@@ -13,4 +13,4 @@ export const copyStylesToIframes = () => {
       }
     });
   });
-}
+};

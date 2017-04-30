@@ -1,6 +1,6 @@
 const PROTOCOLS = {
   HTTP: 'http:',
-  HTTPS: 'https:',
-}
+  HTTPS: 'https:'
+};
 
 export default PROTOCOLS;

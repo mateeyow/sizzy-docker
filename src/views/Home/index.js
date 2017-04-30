@@ -1,25 +1,25 @@
 // @flow
-import typeof store from "stores/store";
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
+import typeof store from 'stores/store';
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
 //styled-components
-import { Home, Devices, Content } from "./styles";
+import { Home, Devices, Content } from './styles';
 
 //components
-import Device from "components/Device";
-import Toolbar from "components/Toolbar";
-import WelcomeBox from "components/WelcomeBox";
+import Device from 'components/Device';
+import Toolbar from 'components/Toolbar';
+import WelcomeBox from 'components/WelcomeBox';
 
 //external
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 type Props = {
   store: any | store,
   children?: React.Element<*>
 };
 
-@inject("store")
+@inject('store')
 @observer
 class HomeComponent extends Component {
   props: Props;

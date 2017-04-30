@@ -1,10 +1,8 @@
 <p align="center">
-<h1 style="text-align:center;">Sizzy</h1>
-</p>
-
-<p align="center">
 <img src="http://i.imgur.com/DmmJV3Z.png" alt="Sizzly" width="365" height="365"/>
 </p>
+
+## Sizzy
 
 A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io) 
 [![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers) 

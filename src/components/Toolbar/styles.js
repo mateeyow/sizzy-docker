@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
-import { toolbarHeight } from 'styles/sizes';
-import { colorTransition } from 'styles/shared';
-import { rotateIconOnOrientationChange } from 'utils/sc-utils';
+import {toolbarHeight} from 'styles/sizes';
+import {colorTransition} from 'styles/shared';
+import {rotateIconOnOrientationChange} from 'utils/sc-utils';
 
 //external
 import $Icon from 'react-fontawesome';
@@ -15,7 +15,7 @@ export const Toolbar = styled.div`
   top:0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 9999;
   transition: ${colorTransition};
   width: 100%;
   height: ${toolbarHeight}px;
@@ -78,10 +78,7 @@ export const Filters = styled.div`
   ${flex.centerHorizontalV}
 `;
 
-export const AppName = styled.div`
-  font-size: 25px;
-  font-weight: 400;
-  color: ${p => p.theme.color};
+export const Logo = styled.img`
   margin-right: 30px;
   cursor: pointer;
 `;

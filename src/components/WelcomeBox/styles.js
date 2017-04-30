@@ -27,15 +27,14 @@ export const WelcomeBox = styled.div`
   right: 0;
   bottom: 0;
   opacity: 1;
-  z-index: 9999;
+  z-index: 99;
   background-color: ${p => p.theme.backgroundColor};
 `;
 
 export const Globe = styled($Icon)`
   font-size: 170px !important;
   opacity: 0.1;
-  position: absolute;
-  transform: translateY(${p => (p.loading ? 0 : -165)}px) ${p => cond(p.loading, `scale(1.5)`)};
+  transform: translateY(${p => (p.loading ? 85 : 0)}px) ${p => cond(p.loading, `scale(1.5)`)};
   transition: all 500ms linear;
   
   ${p => cond(p.loading, `

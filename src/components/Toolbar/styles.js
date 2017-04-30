@@ -15,7 +15,7 @@ export const Toolbar = styled.div`
   top:0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 9999;
   transition: ${colorTransition};
   width: 100%;
   height: ${toolbarHeight}px;

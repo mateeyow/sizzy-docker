@@ -27,7 +27,7 @@ export const WelcomeBox = styled.div`
   right: 0;
   bottom: 0;
   opacity: 1;
-  z-index: 9999;
+  z-index: 99;
   background-color: ${p => p.theme.backgroundColor};
 `;
 

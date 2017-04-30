@@ -39,7 +39,7 @@ class HomeComponent extends Component {
       settings,
       devices,
       isValidUrl,
-      loading
+      urlIsLoaded
     } = app;
 
     const { zoom, orientation } = settings;
@@ -56,7 +56,7 @@ class HomeComponent extends Component {
             transitionEnterTimeout={500}
             transitionLeaveTimeout={400}
           >
-            {(!isValidUrl || loading) && <WelcomeBox />}
+            {!urlIsLoaded && <WelcomeBox />}
           </ReactCSSTransitionGroup>
 
           {isValidUrl &&

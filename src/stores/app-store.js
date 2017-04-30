@@ -140,6 +140,10 @@ class AppStore {
     return isWebUri(this.urlToLoad);
   }
 
+  @computed get urlIsLoaded(): boolean{
+    return this.isValidUrl && this.loading === false;
+  }
+
   /* Helpers */
 
   isVisible = (device: Device) => {

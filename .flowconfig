@@ -1,6 +1,6 @@
 [ignore]
 .*/node_modules/styled-components/lib/.*
-.*/node_modules/styled-components/src/.*
+.*/node_modules/styled-components/.*
 .*/node_modules/styled-components/dangerfile.js
 .*/node_modules/react-side-effect/.*
 .*/node_modules/fbjs/.*

@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import flex from "styles/flex";
-import { toolbarHeight } from "styles/sizes";
-import { colorTransition } from "styles/shared";
-import { rotateIconOnOrientationChange } from "utils/sc-utils";
+import styled from 'styled-components';
+import flex from 'styles/flex';
+import { toolbarHeight } from 'styles/sizes';
+import { colorTransition } from 'styles/shared';
+import { rotateIconOnOrientationChange } from 'utils/sc-utils';
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 export const Toolbar = styled.div`
   ${flex.horizontal}
@@ -19,16 +19,16 @@ export const Toolbar = styled.div`
   transition: ${colorTransition};
   width: 100%;
   height: ${toolbarHeight}px;
-  
+
   ${p => p.theme.toolbarStyle}
-  
+
   padding: 0 30px;
 `;
 
 export const ToolbarButton = styled.button`
  margin-right: 10px;
  min-width: 40px;
- cursor: ${p => (p.disabled ? "not-allowed" : "pointer")};
+ cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
  background: none;
  border: none;
  outline: none;
@@ -37,7 +37,7 @@ export const ToolbarButton = styled.button`
  border-radius: 3px;
  transition: ${colorTransition};
  padding: 6px 10px;
- font-weight: 100; 
+ font-weight: 100;
  opacity: ${p => (p.disabled ? 0.3 : 1)};
  ${p => p.theme.buttonStyle}
 `;
@@ -91,4 +91,3 @@ export const ToolbarLeft = styled.div`
   ${flex.centerHorizontalV}
   min-width: 350px;
 `;
-

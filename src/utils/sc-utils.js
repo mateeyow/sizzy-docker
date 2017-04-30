@@ -1,9 +1,10 @@
-import {css} from 'styled-components';
+import { css } from 'styled-components';
 import ORIENTATIONS from 'config/orientations';
 
-export const cond = (condition, rule) => condition ? rule : '';
+export const cond = (condition, rule) => (condition ? rule : '');
 
-export const withoutLast = (rule, lastRule) => `
+export const withoutLast = (rule, lastRule) =>
+  `
   ${rule}
   
   &:last-child {
@@ -11,7 +12,8 @@ export const withoutLast = (rule, lastRule) => `
   }
 `;
 
-export const withoutLastOfType = (rule, lastRule) => `
+export const withoutLastOfType = (rule, lastRule) =>
+  `
   ${rule}
   
   &:last-of-type{
@@ -21,7 +23,8 @@ export const withoutLastOfType = (rule, lastRule) => `
 
 export const oneOf = (prop, obj) => `${obj[prop]};`;
 
-export const placeholder = style => `
+export const placeholder = style =>
+  `
   &::-webkit-input-placeholder {
    ${style}
   }
@@ -46,7 +49,8 @@ export const noSelect = `
   user-select: none;
 `;
 
-export const proportional = (p = 1) => `
+export const proportional = (p = 1) =>
+  `
   &:after {
     content: "";
     display: block;
@@ -62,7 +66,8 @@ export const absoulteFull = `
   bottom: 0;
 `;
 
-export const whenHovering = (className, rule) => `
+export const whenHovering = (className, rule) =>
+  `
   &:hover {
     .${className} {
       ${rule}
@@ -71,13 +76,15 @@ export const whenHovering = (className, rule) => `
 `;
 
 export const showOnHover = className => whenHovering(className, 'opacity: 1;');
-export const displayOnHover = (className, display = 'flex') => whenHovering(className, `display: ${display} !important;`);
+export const displayOnHover = (className, display = 'flex') =>
+  whenHovering(className, `display: ${display} !important;`);
 
-export const coverImage = url => `
+export const coverImage = url =>
+  `
   background: url("${url}") no-repeat center;
   background-size: cover;
   background-position: center;
-`
+`;
 
 export const removeTouchHighlight = `-webkit-tap-highlight-color: rgba(0,0,0,0);`;
 
@@ -87,40 +94,47 @@ export const ellipsis = `
   text-overflow: ellipsis;
 `;
 
-export const size = s => `
+export const size = s =>
+  `
   width: ${s}px;
   height: ${s}px;
 `;
 
-export const maxSize = s => `
+export const maxSize = s =>
+  `
   max-width: ${s}px;
   max-height: ${s}px;
 `;
 
-export const minSize = s => `
+export const minSize = s =>
+  `
   max-width: ${s}px;
   max-height: ${s}px;
 `;
 
-export const minHeight = s => `
+export const minHeight = s =>
+  `
   height: ${s}px;
   min-height: ${s}px;
   min-height: ${s}px;
 `;
 
-export const mustSize = s => `
+export const mustSize = s =>
+  `
  ${size(s)}
  ${minSize(s)}
  ${maxSize(s)}
 `;
 
-export const line = (color = 'gray', size = 1) => `
+export const line = (color = 'gray', size = 1) =>
+  `
   height: ${size}px;
   border: none;
   background-color: ${color};
-`
+`;
 
-export const iconSize = (size) => `
+export const iconSize = size =>
+  `
   font-size: ${size}px !important;
   height: ${size}px;
   width: ${size}px;
@@ -130,6 +144,6 @@ export const rotateIconOnOrientationChange = css`
   ${p => cond(p.orientation === ORIENTATIONS.LANDSCAPE, `
     transform: rotate(-90deg);
   `)}
-`
+`;
 
 export const smoothScroll = `-webkit-overflow-scrolling: touch;`;

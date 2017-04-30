@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import flex from "styles/flex";
-import { colorTransition } from "styles/shared";
-import { toolbarHeight } from "styles/sizes";
+import styled from 'styled-components';
+import flex from 'styles/flex';
+import { colorTransition } from 'styles/shared';
+import { toolbarHeight } from 'styles/sizes';
 
 export const Home = styled.div`
   min-height: 100vh;

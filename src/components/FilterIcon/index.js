@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 //styled-components
-import { FilterIcon } from "./styles";
+import { FilterIcon } from './styles';
 
 class FilterIconComponent extends Component {
   render() {

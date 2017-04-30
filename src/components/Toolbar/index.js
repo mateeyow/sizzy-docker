@@ -1,8 +1,8 @@
 // @flow
-import typeof store from "stores/store";
+import typeof store from 'stores/store';
 
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
 //styled-components
 import {
@@ -17,18 +17,18 @@ import {
   AppName,
   Filters,
   ButtonIcon
-} from "./styles";
-import { OS, DEVICE_TYPES } from "config/tags";
+} from './styles';
+import { OS, DEVICE_TYPES } from 'config/tags';
 
 //components
-import FilterIcon from "components/FilterIcon";
-import UrlBar from "components/UrlBar";
+import FilterIcon from 'components/FilterIcon';
+import UrlBar from 'components/UrlBar';
 
 type Props = {
   store: any | store
 };
 
-@inject("store")
+@inject('store')
 @observer
 class ToolbarComponent extends Component {
   static defaultProps = {

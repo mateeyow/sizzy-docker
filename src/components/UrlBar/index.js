@@ -1,13 +1,13 @@
 // @flow
-import typeof store from "stores/store";
-import type {InputEvent} from 'config/types';
+import typeof store from 'stores/store';
+import type { InputEvent } from 'config/types';
 
-import React, { Component } from "react";
-import { onEnter } from "utils/input-utils";
-import { inject, observer } from "mobx-react";
+import React, { Component } from 'react';
+import { onEnter } from 'utils/input-utils';
+import { inject, observer } from 'mobx-react';
 
 //styled-components
-import { UrlBar, UrlInput, GoIcon } from "./styles";
+import { UrlBar, UrlInput, GoIcon } from './styles';
 
 type Props = {
   store: any | store,
@@ -15,7 +15,7 @@ type Props = {
   className: ?string
 };
 
-@inject("store")
+@inject('store')
 @observer
 class UrlBarComponent extends Component {
   props: Props;

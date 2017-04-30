@@ -33,6 +33,10 @@
       "src"
     ]
   },
+  "babel": {
+    "presets": ["es2015", "react", "stage-0"],
+    "plugins": ["transform-decorators-legacy"]
+  },
   "lint-staged": {
     "*.js": [
       "prettier --single-quote --write",

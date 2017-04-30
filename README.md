@@ -1,19 +1,19 @@
 <p align="center">
-![sizzly](http://i.imgur.com/DmmJV3Z.png)
+<img src="http://i.imgur.com/DmmJV3Z.png" alt="Sizzly" width="365" height="365"/>
 </p>
-#Sizzy
-A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io)
-[![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers)
+# Sizzy
+A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io) 
+[![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers) 
 [![OpenCollective](https://opencollective.com/sizzy/sponsors/badge.svg)](#sponsors)
 
 ![gif](http://i.imgur.com/BtyqVle.gif)
 
-### Sharing with an url
+## Sharing with an url
 Add ```?url=http://your-url.com``` at the end of the url to share it with a preloaded url.
 
 Example: <a href="http://sizzy.co?url=https://preactjs.com" target="_blank">http://sizzy.co?url=https://preactjs.com</a>
 
-### Getting Started
+## Getting Started
 
 1. Install the dependencies:
 ```
@@ -28,7 +28,18 @@ yarn start
 
 3. Open it in your browser http://localhost:3033/
 
-### Backers
+## Dev issues
+
+### Getting ```module not found``` errors
+![error](http://i.imgur.com/45S4JsF.png)
+
+Files are imported from their absolute paths instead of their relative paths to avoid repeating ```../../../../``` when requiring files. Unfortunately on some machines, the ```NODE_PATH=./src``` rule from the [.env](https://github.com/kitze/sizzy/blob/master/.env#L4) file doesn't get applied, as mentioned [in this issue](https://github.com/kitze/sizzy/issues/31).
+
+Temporary solution is to run ```export NODE_PATH=./src``` in the terminal, before running ```yarn start```.
+
+
+
+## Backers
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/sizzy#backer)]
 

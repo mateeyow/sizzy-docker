@@ -1,7 +1,9 @@
 <p align="center">
-![sizzly](http://i.imgur.com/DmmJV3Z.png)
+<img src="http://i.imgur.com/DmmJV3Z.png" alt="Sizzly" width="365" height="365"/>
 </p>
-# Sizzy
+
+## Sizzy
+
 A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io)
 [![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sizzy/sponsors/badge.svg)](#sponsors)

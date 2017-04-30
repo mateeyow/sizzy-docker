@@ -1,5 +1,5 @@
 <p align="center">
-<h1>Sizzy</h1>
+<h1 style="text:align:center;">Sizzy</h1>
 </p>
 
 <p align="center">

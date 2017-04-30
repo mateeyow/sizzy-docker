@@ -1,6 +1,9 @@
+<p align="center">
+![sizzly](https://cloud.githubusercontent.com/assets/1051509/25567643/69d9636c-2dea-11e7-9116-b064ee27773c.png)
+</p>
 # Sizzy
-A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io) 
-[![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers) 
+A tool for developing responsive websites crazy-fast, made by [@thekitze](http://kitze.io)
+[![OpenCollective](https://opencollective.com/sizzy/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sizzy/sponsors/badge.svg)](#sponsors)
 
 ![gif](http://i.imgur.com/BtyqVle.gif)

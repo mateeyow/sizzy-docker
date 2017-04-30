@@ -17,7 +17,7 @@ const dark = {
     background-color: #211f21;
     border: 1px solid black;
     color: #c7c7c7;
-  `,
+  `
 };
 
 export default dark;

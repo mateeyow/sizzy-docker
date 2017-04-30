@@ -3,7 +3,7 @@ import preact from './themes/preact';
 
 const themes = {
   dark,
-  preact,
+  preact
 };
 
 export default themes;

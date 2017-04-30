@@ -16,7 +16,7 @@ export const preact = {
     background-color: #58319d;
     border: 1px solid #7447c5;
     color: white;
-  `,
+  `
 };
 
 export default preact;

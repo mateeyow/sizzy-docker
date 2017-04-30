@@ -5,5 +5,5 @@ export const onEnter = cb => ({
       e.preventDefault();
       cb(value);
     }
-  },
+  }
 });

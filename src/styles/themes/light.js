@@ -15,8 +15,8 @@ const light = {
   `,
   iframeStyle: {
     boxShadow: '1px 1px 5px 0px #d0d0d0',
-    border: '1px solid #d8d8d8',
-  },
+    border: '1px solid #d8d8d8'
+  }
 };
 
 export default light;

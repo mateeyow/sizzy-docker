@@ -10,8 +10,8 @@ export const buttonIconClassname = 'c-device__button-icon';
 const sizes = {
   button: {
     size: 25,
-    iconSize: 18,
-  },
+    iconSize: 18
+  }
 };
 
 //external

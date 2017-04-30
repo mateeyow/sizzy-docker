@@ -29,14 +29,14 @@ class AppStore {
   @observable urlToLoad: string;
   @observable filters: Array<string> = [
     ...map(DEVICE_TYPES, device => device),
-    ...map(OS, os => os),
+    ...map(OS, os => os)
   ];
   settings: Settings = new Settings(true);
 
   /* Props */
   @observable devices: Array<Device> = map(
     allDevices,
-    device => new Device(device),
+    device => new Device(device)
   );
 
   /* Actions */
@@ -56,7 +56,7 @@ class AppStore {
   @action setUrltoLoad = (
     urlToLoad: string,
     redirectOnProtocolChange: boolean = false,
-    insertIntoUrl: boolean = false,
+    insertIntoUrl: boolean = false
   ) => {
     if (urlToLoad !== this.urlToLoad) {
       let { protocol, host } = window.location;
@@ -99,7 +99,7 @@ class AppStore {
 
   @computed get filteredDeviceNames(): Array<string> {
     let filteredDevices = filter(devices, device =>
-      every(device.tags, tag => this.filters.indexOf(tag) !== -1),
+      every(device.tags, tag => this.filters.indexOf(tag) !== -1)
     );
     return map(filteredDevices, device => device.name);
   }

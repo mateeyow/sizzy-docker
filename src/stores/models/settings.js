@@ -72,7 +72,7 @@ class Settings {
   getValues = (): DeviceSettings => ({
     zoom: this.zoom,
     showSizes: this.showSizes,
-    orientation: this.orientation,
+    orientation: this.orientation
   });
 }
 

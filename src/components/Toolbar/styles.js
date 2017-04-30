@@ -10,8 +10,8 @@ import $Icon from 'react-fontawesome';
 const sizes = {
   goIcon: {
     size: 20,
-    offsetRight: 8,
-  },
+    offsetRight: 8
+  }
 };
 
 export const Toolbar = styled.div`

@@ -12,7 +12,7 @@ import Toolbar from 'components/Toolbar';
 
 type Props = {
   store: any | store,
-  children?: React.Element<*>,
+  children?: React.Element<*>
 };
 
 @inject('store')
@@ -21,7 +21,7 @@ class HomeComponent extends Component {
   props: Props;
 
   static defaultProps = {
-    store: null,
+    store: null
   };
 
   render() {
@@ -33,7 +33,7 @@ class HomeComponent extends Component {
       isVisible,
       settings,
       devices,
-      isValidUrl,
+      isValidUrl
     } = app;
     const { zoom, orientation } = settings;
 

@@ -49,7 +49,7 @@ export const flex = {
   `,
   alignEnd: `
     align-items: flex-end;
-  `,
+  `
 };
 
 export default flex;

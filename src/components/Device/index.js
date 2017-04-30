@@ -20,7 +20,7 @@ import {
   Device,
   Buttons,
   Size,
-  buttonIconClassname,
+  buttonIconClassname
 } from './styles';
 
 type Props = {
@@ -29,7 +29,7 @@ type Props = {
   theme: Object,
   visible: boolean,
   url: string,
-  urlToLoad: string,
+  urlToLoad: string
 };
 
 @observer class DeviceComponent extends Component {
@@ -43,7 +43,7 @@ type Props = {
       theme,
       visible,
       url,
-      urlToLoad,
+      urlToLoad
     } = this.props;
 
     const { orientation, zoom, showSizes } = settings;
@@ -68,17 +68,17 @@ type Props = {
         left: 0,
         borderRadius: 3,
         backgroundColor: 'white',
-        ...theme.iframeStyle,
+        ...theme.iframeStyle
       },
       width: `${iframeWidth}px`,
-      height: `${iframeHeight}px`,
+      height: `${iframeHeight}px`
     };
 
     const deviceStyle = {
       width: iframeWidth * zoomValue,
       height: iframeHeight * zoomValue + deviceHeaderTotalHeight,
       position: 'relative',
-      display: visible ? 'flex' : 'none', //hide/show iframe instead of completely destroying it, much faster.
+      display: visible ? 'flex' : 'none' //hide/show iframe instead of completely destroying it, much faster.
     };
 
     const hasChildren = !url && children;

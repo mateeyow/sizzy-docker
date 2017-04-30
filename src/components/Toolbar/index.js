@@ -21,7 +21,7 @@ import {
   ButtonIcon,
   UrlInput,
   UrlWrap,
-  GoIcon,
+  GoIcon
 } from './styles';
 import { OS, DEVICE_TYPES } from 'config/tags';
 
@@ -29,13 +29,13 @@ import { OS, DEVICE_TYPES } from 'config/tags';
 import FilterIcon from 'components/FilterIcon';
 
 type Props = {
-  store: any | store,
+  store: any | store
 };
 @inject('store')
 @observer
 class ToolbarComponent extends Component {
   static defaultProps = {
-    store: null,
+    store: null
   };
 
   props: Props;

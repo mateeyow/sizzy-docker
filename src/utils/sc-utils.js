@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import {css} from 'styled-components';
 import ORIENTATIONS from 'config/orientations';
 
 export const cond = (condition, rule) => (condition ? rule : '');

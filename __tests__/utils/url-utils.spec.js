@@ -1,8 +1,8 @@
-import { isUrlSameProtocol, getOppositeProtocol } from "../../src/utils/url-utils";
+import {isUrlSameProtocol, getOppositeProtocol} from '../../src/utils/url-utils';
 
-describe("Utils", () => {
-  describe("urlIsSameProtocol", () => {
-    it("should return false when same", () => {
+describe('Utils', () => {
+  describe('urlIsSameProtocol', () => {
+    it('should return false when same', () => {
       const result = isUrlSameProtocol('https://kitze.io', 'https:');
       expect(result).toEqual(true);
 
@@ -10,7 +10,7 @@ describe("Utils", () => {
       expect(result1).toEqual(true);
     });
 
-    it("should return false when different", () => {
+    it('should return false when different', () => {
       const result = isUrlSameProtocol('https://kitze.io', 'http:');
       expect(result).toEqual(false);
 
@@ -18,7 +18,7 @@ describe("Utils", () => {
       expect(result1).toEqual(false);
     });
 
-    it("should return false when url is invalid", () => {
+    it('should return false when url is invalid', () => {
       const result = isUrlSameProtocol('aslkdgjalsk', 'http:');
       expect(result).toEqual(false);
 
@@ -27,16 +27,15 @@ describe("Utils", () => {
     });
   });
 
-  describe("getOppositeProtocol", () => {
-    it("should return opposite http when https", () => {
+  describe('getOppositeProtocol', () => {
+    it('should return opposite http when https', () => {
       expect(getOppositeProtocol('https:')).toEqual('http:');
     });
-    it("should return opposite http when https", () => {
+    it('should return opposite http when https', () => {
       expect(getOppositeProtocol('http:')).toEqual('https:');
     });
-    it("should return false when used with invalid value", () => {
+    it('should return false when used with invalid value', () => {
       expect(getOppositeProtocol('asdgasdgasdgasd')).toEqual(false);
     });
   });
-
 });

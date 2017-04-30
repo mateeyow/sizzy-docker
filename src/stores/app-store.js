@@ -1,9 +1,9 @@
 // @flow
-import type { DeviceSettings } from 'config/types';
-import { observable, action, computed } from 'mobx';
-import { toggleInArray } from 'utils/array-utils';
-import { isWebUri } from 'valid-url';
-import { isUrlSameProtocol, getOppositeProtocol } from 'utils/url-utils';
+import type {DeviceSettings} from 'config/types';
+import {observable, action, computed} from 'mobx';
+import {toggleInArray} from 'utils/array-utils';
+import {isWebUri} from 'valid-url';
+import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
 import allDevices from 'config/devices';
 import store from 'stores/store';
 import views from 'config/views';
@@ -15,7 +15,7 @@ import Device from 'stores/models/device';
 //config
 import themes from 'styles/themes';
 import devices from 'config/devices';
-import { OS, DEVICE_TYPES } from 'config/tags';
+import {OS, DEVICE_TYPES} from 'config/tags';
 
 //lodash
 import every from 'lodash/every';
@@ -36,10 +36,7 @@ class AppStore {
   settings: Settings = new Settings(true);
 
   /* Props */
-  @observable devices: Array<Device> = map(
-    allDevices,
-    device => new Device(device)
-  );
+  @observable devices: Array<Device> = map(allDevices, device => new Device(device));
 
   /* Actions */
 
@@ -61,7 +58,7 @@ class AppStore {
     insertIntoUrl: boolean = false
   ) => {
     if (urlToLoad !== this.urlToLoad) {
-      let { protocol, host } = window.location;
+      let {protocol, host} = window.location;
 
       //if invalid url (doesn't have protcol), try to append current protocol
       if (!isWebUri(urlToLoad)) {
@@ -72,8 +69,7 @@ class AppStore {
       let urlIsSameProtocol = isUrlSameProtocol(urlToLoad, protocol);
       let oppositeProtocol = getOppositeProtocol(protocol);
 
-      let shouldRefreshPage =
-        !urlIsSameProtocol && redirectOnProtocolChange === true;
+      let shouldRefreshPage = !urlIsSameProtocol && redirectOnProtocolChange === true;
 
       if (shouldRefreshPage && oppositeProtocol !== false) {
         const newUrl = `${oppositeProtocol}//${host}?url=${urlToLoad}`;
@@ -86,7 +82,7 @@ class AppStore {
       this.url = urlToLoad;
 
       if (insertIntoUrl) {
-        store.router.goTo(views.home, {}, store, { url: this.urlToLoad });
+        store.router.goTo(views.home, {}, store, {url: this.urlToLoad});
       }
     }
   };
@@ -147,9 +143,7 @@ class AppStore {
   /* Helpers */
 
   isVisible = (device: Device) => {
-    return device && device.name
-      ? this.filteredDeviceNames.indexOf(device.name) !== -1
-      : false;
+    return device && device.name ? this.filteredDeviceNames.indexOf(device.name) !== -1 : false;
   };
 }
 

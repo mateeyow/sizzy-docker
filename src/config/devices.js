@@ -1,4 +1,4 @@
-import { DEVICE_TYPES, OS } from 'config/tags';
+import {DEVICE_TYPES, OS} from 'config/tags';
 
 const devices = {
   iPhone4: {

@@ -3,7 +3,7 @@ import type { InputEvent, DeviceSettings } from "config/types";
 
 import store from "stores/store";
 
-import { observable, action, computed } from "mobx";
+import { observable, action } from "mobx";
 import ORIENTATIONS from "config/orientations";
 import { getOppositeOrientation } from "utils/utils";
 

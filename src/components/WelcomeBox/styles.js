@@ -1,6 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import flex from "styles/flex";
-import { iconSize, cond } from "utils/sc-utils";
+import { cond } from "utils/sc-utils";
 import {toolbarHeight} from 'styles/sizes';
 
 //components

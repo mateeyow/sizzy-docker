@@ -2,7 +2,7 @@ import styled from "styled-components";
 import flex from "styles/flex";
 import { toolbarHeight } from "styles/sizes";
 import { colorTransition } from "styles/shared";
-import { rotateIconOnOrientationChange, iconSize } from "utils/sc-utils";
+import { rotateIconOnOrientationChange } from "utils/sc-utils";
 
 //external
 import $Icon from "react-fontawesome";

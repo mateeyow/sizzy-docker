@@ -3,7 +3,6 @@ import Settings from "stores/models/settings";
 import DeviceType from "stores/models/device";
 
 import React, { Component } from "react";
-import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 import { deviceHeader } from "styles/sizes";
 import ORIENTATIONS from "config/orientations";

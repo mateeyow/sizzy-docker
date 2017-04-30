@@ -27,7 +27,7 @@ export const UrlInput = styled.input`
   margin-right: 35px;
   padding: ${p => {
   const { padding = sizes.urlInput.padding } = p.styles || {};
-  return `${padding}px ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px ${padding}px ${padding}px;`;
+  return `0 ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px 0 ${padding}px;`;
 }}
   border: none;
   border-bottom-color: #825acb;

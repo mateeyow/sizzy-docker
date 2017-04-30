@@ -36,8 +36,8 @@
   "lint-staged": {
     "*.js": [
       "prettier --single-quote --write",
-      "jest -i --findRelatedTests",
-      "git add"
+      "git add",
+      "jest -i --findRelatedTests"
     ]
   },
   "scripts": {

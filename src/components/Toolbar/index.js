@@ -4,6 +4,8 @@ import typeof store from 'stores/store';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
+import Logo from './logo.svg'
+
 //styled-components
 import {
   Toolbar,
@@ -48,7 +50,9 @@ class ToolbarComponent extends Component {
       <Toolbar>
 
         <ToolbarLeft>
-          <AppName onClick={app.resetToHome}> Sizzy </AppName>
+          <AppName onClick={app.resetToHome}>
+            <img src={Logo} alt="Sizzy" width="70px"/>
+           </AppName>
           {isValidUrl && <UrlBar />}
         </ToolbarLeft>
 

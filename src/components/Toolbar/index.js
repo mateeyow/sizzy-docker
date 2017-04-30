@@ -1,8 +1,10 @@
 // @flow
 import typeof store from 'stores/store';
 
-import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import React, {Component} from 'react';
+import {inject, observer} from 'mobx-react';
+
+import Logo from './logo.svg';
 
 //styled-components
 import {
@@ -14,11 +16,11 @@ import {
   ToolbarButtons,
   ToolbarRightSide,
   ToolbarLeft,
-  AppName,
+  Logo,
   Filters,
   ButtonIcon
 } from './styles';
-import { OS, DEVICE_TYPES } from 'config/tags';
+import {OS, DEVICE_TYPES} from 'config/tags';
 
 //components
 import FilterIcon from 'components/FilterIcon';
@@ -38,9 +40,9 @@ class ToolbarComponent extends Component {
   props: Props;
 
   render() {
-    const { store: { app } } = this.props;
-    const { filters, settings, isValidUrl, urlIsLoaded } = app;
-    const { zoom, orientation } = settings;
+    const {store: {app}} = this.props;
+    const {filters, settings, isValidUrl, urlIsLoaded} = app;
+    const {zoom, orientation} = settings;
 
     const smallZoom = zoom < 50;
 
@@ -48,7 +50,7 @@ class ToolbarComponent extends Component {
       <Toolbar>
 
         <ToolbarLeft>
-          <AppName onClick={app.resetToHome}> Sizzy </AppName>
+          <Logo onClick={app.resetToHome} src={Logo} alt="Sizzy" width="70px" />
           {isValidUrl && <UrlBar />}
         </ToolbarLeft>
 
@@ -94,16 +96,10 @@ class ToolbarComponent extends Component {
               >
                 <ButtonIcon name="sort-numeric-asc" />
               </ToolbarButton>
-              <ToolbarButton
-                title="Reset all settings"
-                onClick={app.resetAllSettings}
-              >
+              <ToolbarButton title="Reset all settings" onClick={app.resetAllSettings}>
                 <ButtonIcon name="repeat" />
               </ToolbarButton>
-              <ToolbarButton
-                title="Switch orientation"
-                onClick={app.settings.toggleOrientation}
-              >
+              <ToolbarButton title="Switch orientation" onClick={app.settings.toggleOrientation}>
                 <ButtonIcon orientation={orientation} name="mobile" />
               </ToolbarButton>
               <ToolbarButton title="Switch theme" onClick={app.switchTheme}>
@@ -114,13 +110,7 @@ class ToolbarComponent extends Component {
             <Zoom>
               <ZoomLabel> Zoom </ZoomLabel>
               <ZoomLevel>({zoom}%)</ZoomLevel>
-              <input
-                type="range"
-                min="25"
-                max="100"
-                onChange={app.settings.setZoom}
-                value={zoom}
-              />
+              <input type="range" min="25" max="100" onChange={app.settings.setZoom} value={zoom} />
             </Zoom>
           </ToolbarRightSide>}
 

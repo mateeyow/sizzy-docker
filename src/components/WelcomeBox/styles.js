@@ -1,13 +1,13 @@
-import styled, {keyframes} from "styled-components";
-import flex from "styles/flex";
-import { iconSize, cond } from "utils/sc-utils";
-import {toolbarHeight} from 'styles/sizes';
+import styled, { keyframes } from 'styled-components';
+import flex from 'styles/flex';
+import { cond } from 'utils/sc-utils';
+import { toolbarHeight } from 'styles/sizes';
 
 //components
-import $UrlBar from "components/UrlBar";
+import $UrlBar from 'components/UrlBar';
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 const pulseAnimation = keyframes`
   from {opacity: 0.5;}
@@ -35,7 +35,7 @@ export const Globe = styled($Icon)`
   font-size: 170px !important;
   opacity: 0.1;
   position: absolute;
-  transform: translateY(${p => p.loading ? 0 : -165}px) ${p => cond(p.loading, `scale(1.5)`)};
+  transform: translateY(${p => (p.loading ? 0 : -165)}px) ${p => cond(p.loading, `scale(1.5)`)};
   transition: all 500ms linear;
   
   ${p => cond(p.loading, `
@@ -73,7 +73,7 @@ export const Content = styled.div`
   ${flex.centerVertical}
   transition: all 500ms linear;
   opacity: ${p => (p.show ? 1 : 0)};
-  transform: translateY(${p => p.show ? 0 : 300}px) ${p => cond(!p.show, `scale(0.5)`)};
+  transform: translateY(${p => (p.show ? 0 : 300)}px) ${p => cond(!p.show, `scale(0.5)`)};
 `;
 
 /* Size overrides for internal elements of other components */

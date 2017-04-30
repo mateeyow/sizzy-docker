@@ -1,26 +1,26 @@
 // @flow
-import type { DeviceSettings } from "config/types";
-import { observable, action, computed } from "mobx";
-import { toggleInArray } from "utils/array-utils";
-import { isWebUri } from "valid-url";
-import { isUrlSameProtocol, getOppositeProtocol } from "utils/url-utils";
-import allDevices from "config/devices";
-import store from "stores/store";
-import views from "config/views";
+import type { DeviceSettings } from 'config/types';
+import { observable, action, computed } from 'mobx';
+import { toggleInArray } from 'utils/array-utils';
+import { isWebUri } from 'valid-url';
+import { isUrlSameProtocol, getOppositeProtocol } from 'utils/url-utils';
+import allDevices from 'config/devices';
+import store from 'stores/store';
+import views from 'config/views';
 
 //models
-import Settings from "stores/models/settings";
-import Device from "stores/models/device";
+import Settings from 'stores/models/settings';
+import Device from 'stores/models/device';
 
 //config
-import themes from "styles/themes";
-import devices from "config/devices";
-import { OS, DEVICE_TYPES } from "config/tags";
+import themes from 'styles/themes';
+import devices from 'config/devices';
+import { OS, DEVICE_TYPES } from 'config/tags';
 
 //lodash
-import every from "lodash/every";
-import filter from "lodash/filter";
-import map from "lodash/map";
+import every from 'lodash/every';
+import filter from 'lodash/filter';
+import map from 'lodash/map';
 
 class AppStore {
   /* Observables */
@@ -96,9 +96,9 @@ class AppStore {
     this.showWelcomeContent = false;
 
     setTimeout(() => {
-        this.loading = false;
+      this.loading = false;
     }, 2000);
-  }
+  };
 
   @action loadCurrentUrl = () => {
     this.setUrltoLoad(this.url, true, true);
@@ -115,13 +115,13 @@ class AppStore {
     this.themeIndex = newThemeIndex >= themeKeys.length ? 0 : newThemeIndex;
   };
 
-  @action resetToHome = () => window.location.href = window.location.origin;
+  @action resetToHome = () => (window.location.href = window.location.origin);
 
   @action loadExampleUrl = () => {
     const exampleUrl = `${window.location.protocol}//kitze.io`;
     this.setUrl(exampleUrl);
     this.setUrltoLoad(exampleUrl, false, true);
-  }
+  };
 
   /* Computed */
 
@@ -138,6 +138,10 @@ class AppStore {
 
   @computed get isValidUrl(): boolean {
     return isWebUri(this.urlToLoad);
+  }
+
+  @computed get urlIsLoaded(): boolean {
+    return this.isValidUrl && this.loading === false;
   }
 
   /* Helpers */

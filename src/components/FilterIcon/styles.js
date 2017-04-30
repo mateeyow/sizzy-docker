@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { colorTransition } from "styles/shared";
-import { cond } from "utils/sc-utils";
+import styled from 'styled-components';
+import { colorTransition } from 'styles/shared';
+import { cond } from 'utils/sc-utils';
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 export const FilterIcon = styled($Icon)`
   color: white;

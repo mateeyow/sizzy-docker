@@ -4,34 +4,49 @@
 // @flow
 
 declare module 'styled-components' {
-  declare type Interpolation = ((executionContext: Object) => string) | string | number;
-  declare type NameGenerator = (hash: number) => string
+  declare type Interpolation =
+    | ((executionContext: Object) => string)
+    | string
+    | number;
+  declare type NameGenerator = (hash: number) => string;
 
   declare type StyledComponent = (
     strings: Array<string>,
     ...interpolations: Array<Interpolation>
   ) => ReactClass<*>;
 
-
-  declare type Theme = {[key: string]: mixed};
+  declare type Theme = { [key: string]: mixed };
   declare type ThemeProviderProps = {
     theme: ((outerTheme: Theme) => void) | Theme
   };
   declare type Component =
     | React$Component<*, *, *>
-    | (props: *) => React$Element<*>;
+    | ((props: *) => React$Element<*>);
 
   declare class ThemeProvider extends React$Component {
-    props: ThemeProviderProps;
+    props: ThemeProviderProps
   }
 
   declare module.exports: {
-    injectGlobal: (strings: Array<string>, ...interpolations: Array<Interpolation>) => void,
-    css: (strings: Array<string>, ...interpolations: Array<Interpolation>) => Array<Interpolation>,
-    keyframes: (nameGenerator: NameGenerator) => (strings: Array<string>, ...interpolations: Array<Interpolation>) => string,
-    withTheme: (component: Component) => React$Component<*, ThemeProviderProps, *>,
-    ThemeProvider: typeof ThemeProvider,
     (baseComponent: Component): StyledComponent,
+    injectGlobal: (
+      strings: Array<string>,
+      ...interpolations: Array<Interpolation>
+    ) => void,
+    css: (
+      strings: Array<string>,
+      ...interpolations: Array<Interpolation>
+    ) => Array<Interpolation>,
+    keyframes: (
+      nameGenerator: NameGenerator
+    ) => (
+      strings: Array<string>,
+      ...interpolations: Array<Interpolation>
+    ) => string,
+    withTheme: (
+      component: Component
+    ) => React$Component<*, ThemeProviderProps, *>,
+    ThemeProvider: typeof ThemeProvider,
     a: StyledComponent,
     abbr: StyledComponent,
     address: StyledComponent,
@@ -165,6 +180,6 @@ declare module 'styled-components' {
     stop: StyledComponent,
     svg: StyledComponent,
     text: StyledComponent,
-    tspan: StyledComponent,
+    tspan: StyledComponent
   };
 }

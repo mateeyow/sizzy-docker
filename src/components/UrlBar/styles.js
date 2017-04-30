@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { iconSize } from "utils/sc-utils";
+import styled from 'styled-components';
+import { iconSize } from 'utils/sc-utils';
 
 //external
-import $Icon from "react-fontawesome";
+import $Icon from 'react-fontawesome';
 
 const sizes = {
   urlInput: {
-    padding: 13,
+    padding: 13
   },
   goIcon: {
     size: 20,
@@ -27,7 +27,7 @@ export const UrlInput = styled.input`
   margin-right: 35px;
   padding: ${p => {
   const { padding = sizes.urlInput.padding } = p.styles || {};
-  return `${padding}px ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px ${padding}px ${padding}px;`;
+  return `0 ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px 0 ${padding}px;`;
 }}
   border: none;
   border-bottom-color: #825acb;
@@ -48,13 +48,13 @@ export const GoIcon = styled($Icon)`
   margin: auto;
   
   ${p => {
-    const iconSizes = (p.styles && p.styles.sizes) ? p.styles.sizes : sizes.goIcon;
-    
-    return `
+  const iconSizes = p.styles && p.styles.sizes ? p.styles.sizes : sizes.goIcon;
+
+  return `
       right: ${iconSizes.offsetRight}px;
       ${iconSize(iconSizes.size)}
-    `
-  }}
+    `;
+}}
 
   transition: color 100ms linear;
   &:hover {

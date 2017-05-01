@@ -73,11 +73,6 @@ export const ButtonIcon = styled($Icon)`
   ${rotateIconOnOrientationChange}
 `;
 
-export const Filters = styled.div`
-  ${flex.horizontal}
-  ${flex.centerHorizontalV}
-`;
-
 export const Logo = styled.img`
   margin-right: 30px;
   cursor: pointer;

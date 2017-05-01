@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
+// @flow
+import React, {Component} from 'react';
 
 //styled-components
-import { FilterIcon } from './styles';
+import {FilterIcon} from './styles';
+
+type Props = {
+  title: string,
+  selected: boolean,
+  icon: string,
+  toggleFilterfn: () => any
+};
 
 class FilterIconComponent extends Component {
-  render() {
-    const { toggle, title, icon, toggleFilterfn, filters } = this.props;
+  props: Props;
 
-    return (
-      <FilterIcon
-        title={title}
-        onClick={() => toggleFilterfn(toggle)}
-        name={icon}
-        selected={filters.indexOf(toggle) !== -1}
-      />
-    );
+  render() {
+    const {selected, title, icon, toggleFilterfn} = this.props;
+
+    return <FilterIcon title={title} onClick={toggleFilterfn} name={icon} selected={selected} />;
   }
 }
 

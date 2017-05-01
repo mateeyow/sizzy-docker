@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
 import {colorTransition} from 'styles/shared';
-import {rotateIconOnOrientationChange} from 'utils/sc-utils';
+import {rotateIconOnOrientationChange, cond} from 'utils/sc-utils';
 
 //external
 import $Icon from 'react-fontawesome';
@@ -11,7 +11,7 @@ export const Sidebar = styled.div`
   ${flex.spaceBetween}
   
   ${p => {
-  const width = p.opened ? 240 : 30;
+  const width = p.theme.sidebarFullSize ? 180 : 50;
   return `
       min-width: ${width}px;
       max-width: ${width}px;
@@ -20,13 +20,14 @@ export const Sidebar = styled.div`
   
   background-color: #242831;
   border-right: 1px solid #1b1e25;
-  padding: 20px 15px;
+  
+  padding: ${p => (p.sidebarFullSize ? '20px 15px' : '10px 0')}
   color: white;
 `;
 
 export const Filters = styled.div`
-  ${flex.horizontal}
-  ${flex.centerHorizontalV}
+  ${p => (p.theme.sidebarFullSize ? flex.horizontal : flex.vertical)}
+  ${p => (p.theme.sidebarFullSize ? flex.centerHorizontalV : flex.centerHorizontal)}
 `;
 
 export const Top = styled.div`
@@ -34,43 +35,49 @@ export const Top = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 13px;
+  font-size: ${p => (p.theme.sidebarFullSize ? 13 : 11)}px;
   color: rgba(255, 255, 255, 0.8);
+  ${p => cond(!p.theme.sidebarFullSize, `text-align: center;`)}
   margin: 15px 0;
 `;
 
 export const ToolbarButtons = styled.div`
   ${flex.vertical}
+  width: 100%;
 `;
 
 /* Button */
-export const ToolbarButton = styled.button`
+export const ToolbarButton = styled.div`
  ${flex.horizontal}
- ${flex.centerHorizontalV}
- margin-right: 10px;
+ ${p => (p.theme.sidebarFullSize ? flex.centerHorizontalV : flex.centerHorizontal)}
+ ${p => (p.theme.sidebarFullSize ? `margin-right: 10px;` : `margin-bottom: 7px;`)}
+ 
  min-width: 40px;
  cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
- background: none;
- border: none;
- outline: none;
- color: ${p => p.theme.color};
- font-size: 14px;
+ font-size: 13px;
  border-radius: 3px;
+ padding: 5px 0;
  transition: ${colorTransition};
- padding: 6px 10px;
- font-weight: 100;
+ font-weight: 300;
  opacity: ${p => (p.disabled ? 0.3 : 1)};
- ${p => p.theme.buttonStyle}
- margin-bottom: 10px
+
+  &:hover {
+    background-color: #1d2027;
+  }
+  
+  ${p => p.theme.buttonStyle}
 `;
 
 export const ButtonIcon = styled($Icon)`
-  color: white;
+  ${flex.horizontal}
+  ${flex.centerHorizontal}
+  text-align: center;
+  color: ${p => p.theme.gold};
   cursor: pointer;
   font-size: 18px !important;
   transition: ${colorTransition};
   ${rotateIconOnOrientationChange}
-  margin-right: 8px;
+  ${p => cond(p.sidebarFullSize, `margin-right: 8px;`)}
   min-width: 25px;
   opacity: 0.7;
 `;

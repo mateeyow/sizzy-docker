@@ -116,6 +116,10 @@ export const MadeBy = styled.a`
   font-weight: 300;
   transition: color: 200ms linear;
   text-decoration: none;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 110px;
   
   &:hover {
     text-decoration: underline;

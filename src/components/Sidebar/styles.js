@@ -13,10 +13,11 @@ export const Sidebar = styled.div`
   ${p => {
   const width = p.opened ? 240 : 30;
   return `
-    min-width: ${width}px;
-    max-width: ${width}px;
-   `;
+      min-width: ${width}px;
+      max-width: ${width}px;
+     `;
 }}
+  
   background-color: #242831;
   border-right: 1px solid #1b1e25;
   padding: 20px 15px;
@@ -28,7 +29,24 @@ export const Filters = styled.div`
   ${flex.centerHorizontalV}
 `;
 
+export const Top = styled.div`
+  ${flex.vertical}
+`;
+
+export const Label = styled.div`
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 15px 0;
+`;
+
+export const ToolbarButtons = styled.div`
+  ${flex.vertical}
+`;
+
+/* Button */
 export const ToolbarButton = styled.button`
+ ${flex.horizontal}
+ ${flex.centerHorizontalV}
  margin-right: 10px;
  min-width: 40px;
  cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
@@ -43,21 +61,20 @@ export const ToolbarButton = styled.button`
  font-weight: 100;
  opacity: ${p => (p.disabled ? 0.3 : 1)};
  ${p => p.theme.buttonStyle}
-`;
-
-export const ToolbarButtons = styled.div`
-  ${flex.horizontal}
-  margin-right: 15px;
+ margin-bottom: 10px
 `;
 
 export const ButtonIcon = styled($Icon)`
   color: white;
   cursor: pointer;
-  font-size: 21px !important;
+  font-size: 18px !important;
   transition: ${colorTransition};
   ${rotateIconOnOrientationChange}
+  margin-right: 8px;
+  min-width: 25px;
+  opacity: 0.7;
 `;
 
-export const Top = styled.div`
-  ${flex.vertical}
+export const ButtonText = styled.div`
+  
 `;

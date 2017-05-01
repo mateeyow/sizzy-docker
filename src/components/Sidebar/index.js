@@ -11,7 +11,9 @@ import {
   ButtonIcon,
   ToolbarButton,
   ToolbarButtons,
-  Top
+  Top,
+  Label,
+  ButtonText
 } from './styles';
 
 //components
@@ -43,6 +45,9 @@ class SidebarComponent extends Component {
       <Sidebar opened={true}>
 
         <Top>
+
+          <Label> Filter devices by OS </Label>
+
           <Filters>
             <FilterIcon
               title="Toggle Apple devices"
@@ -58,6 +63,11 @@ class SidebarComponent extends Component {
               selected={osFilters.contains(OS.ANDROID)}
               icon="android"
             />
+          </Filters>
+
+          <Label> Filter devices by type </Label>
+
+          <Filters>
             <FilterIcon
               title="Toggle mobile devices"
               toggleFilterfn={() =>
@@ -81,28 +91,39 @@ class SidebarComponent extends Component {
           </Filters>
 
           <ToolbarButtons>
+
+            <Label> Settings </Label>
+
             <ToolbarButton
               disabled={smallZoom}
               title="Toggle sizes"
               onClick={app.settings.toggleShowSizes}
             >
               <ButtonIcon name="sort-numeric-asc" />
+              <ButtonText> Show dimensions </ButtonText>
             </ToolbarButton>
+
             <ToolbarButton
               title="Reset all settings"
               onClick={app.resetAllSettings}
             >
               <ButtonIcon name="repeat" />
+              <ButtonText> Reset all settings</ButtonText>
             </ToolbarButton>
+
             <ToolbarButton
               title="Switch orientation"
               onClick={app.settings.toggleOrientation}
             >
               <ButtonIcon orientation={orientation} name="mobile" />
+              <ButtonText> Switch orientation </ButtonText>
             </ToolbarButton>
+
             <ToolbarButton title="Switch theme" onClick={app.switchTheme}>
               <ButtonIcon name="paint-brush" />
+              <ButtonText> Switch theme </ButtonText>
             </ToolbarButton>
+
           </ToolbarButtons>
 
         </Top>

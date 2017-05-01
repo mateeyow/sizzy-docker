@@ -6,7 +6,6 @@ export const Sizzy = styled.div`
   ${flex.horizontal}
   height: calc(100vh - ${toolbarHeight}px);
   max-height: calc(100vh - ${toolbarHeight}px);
-  border: 1px solid red;
 `;
 
 export const Devices = styled.div`

@@ -5,9 +5,9 @@ export const preact = {
     background-color: #673ab8;
   `,
   buttonStyle: `
-    border: 1px solid #b1b1b1;
+    border: 1px solid rgb(101, 104, 110);
     &:hover {
-      background-color: #58319d;
+      background-color: #1d2027;
     }
   `,
   backgroundColor: '#2b313c',

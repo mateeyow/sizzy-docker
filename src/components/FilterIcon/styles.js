@@ -11,7 +11,7 @@ export const FilterIcon = styled($Icon)`
   cursor: pointer;
   opacity: ${p => (p.selected ? 1 : 0.3)};
   font-size: 28px !important;
-  margin-right: 30px;
+  margin-right: 20px;
   
   &:hover {
     ${p => cond(!p.selected, `

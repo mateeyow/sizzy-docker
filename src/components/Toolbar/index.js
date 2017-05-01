@@ -3,7 +3,9 @@ import typeof store from 'stores/store';
 
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
+import filterTypes from 'config/filter-types';
 
+//images
 import LogoSvg from './logo.svg';
 
 //styled-components
@@ -41,7 +43,7 @@ class ToolbarComponent extends Component {
 
   render() {
     const {store: {app}} = this.props;
-    const {filters, settings, isValidUrl, urlIsLoaded} = app;
+    const {osFilters, deviceTypeFilters, settings, isValidUrl, urlIsLoaded} = app;
     const {zoom, orientation} = settings;
 
     const smallZoom = zoom < 50;
@@ -58,30 +60,28 @@ class ToolbarComponent extends Component {
           <Filters>
             <FilterIcon
               title="Toggle Apple devices"
-              toggleFilterfn={app.toggleFilter}
-              filters={filters}
-              toggle={OS.APPLE}
+              toggleFilterfn={() => osFilters.toggleFilter(OS.APPLE, filterTypes.OS)}
+              selected={osFilters.contains(OS.APPLE)}
               icon="apple"
             />
             <FilterIcon
               title="Toggle Android devices"
-              toggleFilterfn={app.toggleFilter}
-              filters={filters}
-              toggle={OS.ANDROID}
+              toggleFilterfn={() => osFilters.toggleFilter(OS.ANDROID, filterTypes.OS)}
+              selected={osFilters.contains(OS.ANDROID)}
               icon="android"
             />
             <FilterIcon
               title="Toggle mobile devices"
-              toggleFilterfn={app.toggleFilter}
-              filters={filters}
-              toggle={DEVICE_TYPES.PHONE}
+              toggleFilterfn={() =>
+                deviceTypeFilters.toggleFilter(DEVICE_TYPES.PHONE, filterTypes.DEVICE_TYPE)}
+              selected={deviceTypeFilters.contains(DEVICE_TYPES.PHONE)}
               icon="mobile"
             />
             <FilterIcon
               title="Toggle tablet devices"
-              toggleFilterfn={app.toggleFilter}
-              filters={filters}
-              toggle={DEVICE_TYPES.TABLET}
+              toggleFilterfn={() =>
+                deviceTypeFilters.toggleFilter(DEVICE_TYPES.TABLET, filterTypes.DEVICE_TYPE)}
+              selected={deviceTypeFilters.contains(DEVICE_TYPES.TABLET)}
               icon="tablet"
             />
           </Filters>}

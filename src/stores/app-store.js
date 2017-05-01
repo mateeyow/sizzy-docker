@@ -1,7 +1,6 @@
 // @flow
 import type {DeviceSettings} from 'config/types';
-import {observable, action, computed} from 'mobx';
-import {toggleInArray} from 'utils/array-utils';
+import {observable, action, computed, toJS} from 'mobx';
 import {isWebUri} from 'valid-url';
 import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
 import allDevices from 'config/devices';
@@ -11,14 +10,13 @@ import views from 'config/views';
 //models
 import Settings from 'stores/models/settings';
 import Device from 'stores/models/device';
+import Filters from 'stores/models/filters';
 
 //config
 import themes from 'styles/themes';
 import devices from 'config/devices';
-import {OS, DEVICE_TYPES} from 'config/tags';
 
 //lodash
-import every from 'lodash/every';
 import filter from 'lodash/filter';
 import map from 'lodash/map';
 
@@ -29,10 +27,8 @@ class AppStore {
   @observable urlToLoad: string;
   @observable loading: boolean = false;
   @observable showWelcomeContent: boolean = true;
-  @observable filters: Array<string> = [
-    ...map(DEVICE_TYPES, device => device),
-    ...map(OS, os => os)
-  ];
+  @observable deviceTypeFilters: Filters = new Filters();
+  @observable osFilters: Filters = new Filters();
   settings: Settings = new Settings(true);
 
   /* Props */
@@ -100,10 +96,6 @@ class AppStore {
     this.setUrltoLoad(this.url, true, true);
   };
 
-  @action toggleFilter = (filterName: string) => {
-    this.filters = toggleInArray(this.filters, filterName);
-  };
-
   //cycle through themes
   @action switchTheme = () => {
     const themeKeys = Object.keys(themes);
@@ -122,9 +114,9 @@ class AppStore {
   /* Computed */
 
   @computed get filteredDeviceNames(): Array<string> {
-    let filteredDevices = filter(devices, device =>
-      every(device.tags, tag => this.filters.indexOf(tag) !== -1)
-    );
+    let filteredDevices = filter(devices, device => {
+      return this.osFilters.shouldShow(device.os) && this.deviceTypeFilters.shouldShow(device.type);
+    });
     return map(filteredDevices, device => device.name);
   }
 

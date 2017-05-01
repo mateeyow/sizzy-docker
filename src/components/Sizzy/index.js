@@ -34,24 +34,22 @@ class SizzyComponent extends Component {
     return (
       <Sizzy>
         <Sidebar />
-        {/* todo: revert */}
-        {false &&
-          <Devices>
-            {devices.map((device, key) => (
-              <Device
-                key={key}
-                orientation={orientation}
-                visible={isVisible(device)}
-                zoom={zoom}
-                theme={theme}
-                url={url}
-                urlToLoad={urlToLoad}
-                device={device}
-              >
-                {children}
-              </Device>
-            ))}
-          </Devices>}
+        <Devices>
+          {devices.map((device, key) => (
+            <Device
+              key={key}
+              orientation={orientation}
+              visible={isVisible(device)}
+              zoom={zoom}
+              theme={theme}
+              url={url}
+              urlToLoad={urlToLoad}
+              device={device}
+            >
+              {children}
+            </Device>
+          ))}
+        </Devices>
       </Sizzy>
     );
   }

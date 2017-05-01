@@ -1,33 +1,57 @@
 // @flow
 import React, {Component} from 'react';
+import type {InputEvent} from 'config/types';
 
 //styled-components
-import {ZoomController, ZoomLabel, ZoomLevel, Text} from './styles';
+import {
+  ZoomController,
+  ZoomLabel,
+  ZoomLevel,
+  Text,
+  FullSize,
+  Minimal,
+  ZoomLevelButton
+} from './styles';
 
 type Props = {
   zoom: number,
-  setZoom: () => {}
+  setZoom: () => {},
+  fullSize: boolean
 };
 
 class ZoomControllerComponent extends Component {
   props: Props;
 
   render() {
-    const {zoom, setZoom} = this.props;
+    const {zoom, setZoom, fullSize} = this.props;
 
     return (
       <ZoomController>
-        <Text>
-          <ZoomLabel> Zoom </ZoomLabel>
-          <ZoomLevel>({zoom}%)</ZoomLevel>
-        </Text>
-        <input
-          type="range"
-          min="25"
-          max="100"
-          onChange={setZoom}
-          value={zoom}
-        />
+        {fullSize &&
+          <FullSize>
+            <Text>
+              <ZoomLabel> Zoom </ZoomLabel>
+              <ZoomLevel>({zoom}%)</ZoomLevel>
+            </Text>
+            <input
+              type="range"
+              min="25"
+              max="100"
+              onChange={(e: InputEvent) => setZoom(e.target.value)}
+              value={zoom}
+            />
+          </FullSize>}
+
+        {!fullSize &&
+          <Minimal>
+            <ZoomLevelButton onClick={() => setZoom(25)}> 25% </ZoomLevelButton>
+            <ZoomLevelButton onClick={() => setZoom(50)}> 50% </ZoomLevelButton>
+            <ZoomLevelButton onClick={() => setZoom(75)}> 75% </ZoomLevelButton>
+            <ZoomLevelButton onClick={() => setZoom(100)}>
+              100%
+            </ZoomLevelButton>
+          </Minimal>}
+
       </ZoomController>
     );
   }

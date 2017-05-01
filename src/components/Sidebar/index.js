@@ -24,7 +24,8 @@ import FilterIcon from 'components/FilterIcon';
 import ZoomController from 'components/ZoomController';
 
 type Props = {
-  store: any | store
+  store: any | store,
+  theme: any | Object
 };
 
 @inject('store')
@@ -33,7 +34,8 @@ class SidebarComponent extends Component {
   props: Props;
 
   static defaultProps = {
-    store: null
+    store: null,
+    theme: null
   };
 
   render() {
@@ -161,8 +163,22 @@ class SidebarComponent extends Component {
 
             </ToolbarButtons>
 
+            {!sidebarFullSize && <Label> Zoom </Label>}
+            {!sidebarFullSize &&
+              <ZoomController
+                fullSize={sidebarFullSize}
+                zoom={zoom}
+                setZoom={app.settings.setZoom}
+              />}
+
           </Top>
-          <ZoomController zoom={zoom} setZoom={app.settings.setZoom} />
+
+          {sidebarFullSize &&
+            <ZoomController
+              fullSize={sidebarFullSize}
+              zoom={zoom}
+              setZoom={app.settings.setZoom}
+            />}
 
         </Sidebar>
       </ThemeProvider>

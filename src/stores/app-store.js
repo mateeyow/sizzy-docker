@@ -28,7 +28,7 @@ class AppStore {
   @observable urlToLoad: string;
   @observable loading: boolean = false;
   @observable showWelcomeContent: boolean = true;
-  @observable sidebarFullSize: boolean = false;
+  @observable sidebarFullSize: boolean = true;
   @observable deviceTypeFilters: Filters = new Filters();
   @observable osFilters: Filters = new Filters();
   @observable devices: Array<Device> = map(
@@ -50,8 +50,8 @@ class AppStore {
     this.updateAllDevices(this.settings.getValues());
   };
 
-  @action setSidebarFullSize = (value: boolean) => {
-    this.sidebarFullSize = value;
+  @action toggleSidebar = (value: boolean) => {
+    this.sidebarFullSize = !this.sidebarFullSize;
   };
 
   @action setUrl = (url: string) => (this.url = url);

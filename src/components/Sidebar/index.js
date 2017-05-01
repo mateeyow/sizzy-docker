@@ -4,6 +4,7 @@ import {inject, observer} from 'mobx-react';
 import filterTypes from 'config/filter-types';
 import {OS, DEVICE_TYPES} from 'config/tags';
 import {ThemeProvider, withTheme} from 'styled-components';
+import ORIENTATIONS from 'config/orientations';
 
 //styled-components
 import {
@@ -14,7 +15,8 @@ import {
   ToolbarButtons,
   Top,
   Label,
-  ButtonText
+  ButtonText,
+  ToggleSidebar
 } from './styles';
 
 //components
@@ -42,7 +44,8 @@ class SidebarComponent extends Component {
       deviceTypeFilters,
       sidebarFullSize,
       urlIsLoaded,
-      settings
+      settings,
+      toggleSidebar
     } = app;
     const {zoom, orientation} = settings;
     const smallZoom = zoom < 50;
@@ -50,6 +53,12 @@ class SidebarComponent extends Component {
     return (
       <ThemeProvider theme={{...theme, sidebarFullSize}}>
         <Sidebar>
+
+          <ToggleSidebar
+            title={sidebarFullSize ? 'Minimize' : 'Maximize'}
+            onClick={toggleSidebar}
+            name={sidebarFullSize ? 'minus-square-o' : 'plus-square-o'}
+          />
 
           <Top>
 
@@ -112,7 +121,7 @@ class SidebarComponent extends Component {
                 {sidebarFullSize &&
                   <ButtonText>
 
-                    {app.settings.showSizes ? 'Hide' : 'Show'}
+                    {app.settings.showSizes ? 'Hide ' : 'Show '}
 
                     dimensions
 
@@ -134,7 +143,15 @@ class SidebarComponent extends Component {
               >
                 <ButtonIcon orientation={orientation} name="mobile" />
                 {sidebarFullSize &&
-                  <ButtonText> Switch orientation </ButtonText>}
+                  <ButtonText>
+                    {' '}
+                    Switch to
+                    {' '}
+                    {app.settings.orientation === ORIENTATIONS.PORTRAIT
+                      ? ' landscape'
+                      : 'portrait'}
+                    {' '}
+                  </ButtonText>}
               </ToolbarButton>
 
               <ToolbarButton title="Switch theme" onClick={app.switchTheme}>

@@ -25,6 +25,8 @@ export const UrlInput = styled.input`
   width: 100%;
   height: 100%;
   margin-right: 35px;
+  font-size: 15px;
+  line-height: 15px;
   padding: ${p => {
   const {padding = sizes.urlInput.padding} = p.styles || {};
   return `0 ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px 0 ${padding}px;`;

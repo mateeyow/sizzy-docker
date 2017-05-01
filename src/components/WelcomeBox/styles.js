@@ -1,17 +1,26 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import flex from 'styles/flex';
-import { cond } from 'utils/sc-utils';
-import { toolbarHeight } from 'styles/sizes';
+import {cond, size, mustSize} from 'utils/sc-utils';
+import {toolbarHeight} from 'styles/sizes';
 
 //components
 import $UrlBar from 'components/UrlBar';
 
-//external
-import $Icon from 'react-fontawesome';
+const scalePulseAnimation = keyframes`
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
 
-const pulseAnimation = keyframes`
-  from {opacity: 0.5;}
-  to {opacity: 0.1;}
+const shapesScaleAndRoatateAnimation = keyframes`
+  from {
+    transform: rotate(900deg);
+  }
+  to {
+  }
 `;
 
 export const WelcomeBox = styled.div`
@@ -29,17 +38,6 @@ export const WelcomeBox = styled.div`
   opacity: 1;
   z-index: 99;
   background-color: ${p => p.theme.backgroundColor};
-`;
-
-export const Globe = styled($Icon)`
-  font-size: 170px !important;
-  opacity: 0.1;
-  transform: translateY(${p => (p.loading ? 85 : 0)}px) ${p => cond(p.loading, `scale(1.5)`)};
-  transition: all 500ms linear;
-  
-  ${p => cond(p.loading, `
-    animation: ${pulseAnimation} 800ms infinite alternate-reverse;
-  `)}
 `;
 
 export const IntroText = styled.div`
@@ -68,11 +66,52 @@ export const UrlBar = styled($UrlBar)`
 `;
 
 export const Content = styled.div`
+  position: relative;
+  z-index: 2;
   ${flex.vertical}
   ${flex.centerVertical}
   transition: all 500ms linear;
   opacity: ${p => (p.show ? 1 : 0)};
   transform: translateY(${p => (p.show ? 0 : 300)}px) ${p => cond(!p.show, `scale(0.5)`)};
+`;
+
+export const LetterAndShapes = styled.div`
+  ${flex.vertical}
+  ${flex.centerVertical}
+  position: relative;
+  ${size('250px')}
+  margin-bottom: 30px;
+  z-index: 0;
+  transition: all 200ms linear;
+  ${p => cond(p.loading, `transform: translateY(67px);`)}
+`;
+
+export const Letter = styled.img`
+  position: relative;
+  top: 20px;
+  z-index: 1;
+  width: 90px;
+  margin-bottom: 40px;
+  ${p => cond(p.loading, `animation: ${scalePulseAnimation} 500ms infinite alternate-reverse;`)};
+`;
+
+export const ShapesWrap = styled.div`
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.8;
+  ${mustSize('100%')}
+  
+  ${p => cond(!p.loading, `animation: ${scalePulseAnimation} 2000ms infinite alternate-reverse`)};
+  ${p => cond(p.loading, `animation: ${shapesScaleAndRoatateAnimation} 1500ms infinite alternate;`)};
+`;
+
+export const Shapes = styled.img`
+   ${mustSize('100%')}
 `;
 
 /* Size overrides for internal elements of other components */

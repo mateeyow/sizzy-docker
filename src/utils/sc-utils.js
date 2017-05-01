@@ -96,27 +96,27 @@ export const ellipsis = `
 
 export const size = s =>
   `
-  width: ${s}px;
-  height: ${s}px;
+  width: ${s};
+  height: ${s};
 `;
 
 export const maxSize = s =>
   `
-  max-width: ${s}px;
-  max-height: ${s}px;
+  max-width: ${s};
+  max-height: ${s};
 `;
 
 export const minSize = s =>
   `
-  max-width: ${s}px;
-  max-height: ${s}px;
+  max-width: ${s};
+  max-height: ${s};
 `;
 
 export const minHeight = s =>
   `
   height: ${s}px;
-  min-height: ${s}px;
-  min-height: ${s}px;
+  min-height: ${s};
+  min-height: ${s};
 `;
 
 export const mustSize = s =>

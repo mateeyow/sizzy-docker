@@ -32,7 +32,10 @@ class AppStore {
   settings: Settings = new Settings(true);
 
   /* Props */
-  @observable devices: Array<Device> = map(allDevices, device => new Device(device));
+  @observable devices: Array<Device> = map(
+    allDevices,
+    device => new Device(device)
+  );
 
   /* Actions */
 
@@ -65,7 +68,8 @@ class AppStore {
       let urlIsSameProtocol = isUrlSameProtocol(urlToLoad, protocol);
       let oppositeProtocol = getOppositeProtocol(protocol);
 
-      let shouldRefreshPage = !urlIsSameProtocol && redirectOnProtocolChange === true;
+      let shouldRefreshPage =
+        !urlIsSameProtocol && redirectOnProtocolChange === true;
 
       if (shouldRefreshPage && oppositeProtocol !== false) {
         const newUrl = `${oppositeProtocol}//${host}?url=${urlToLoad}`;
@@ -89,7 +93,7 @@ class AppStore {
 
     setTimeout(() => {
       this.loading = false;
-    }, 2000);
+    }, 1800);
   };
 
   @action loadCurrentUrl = () => {
@@ -115,7 +119,10 @@ class AppStore {
 
   @computed get filteredDeviceNames(): Array<string> {
     let filteredDevices = filter(devices, device => {
-      return this.osFilters.shouldShow(device.os) && this.deviceTypeFilters.shouldShow(device.type);
+      return (
+        this.osFilters.shouldShow(device.os) &&
+        this.deviceTypeFilters.shouldShow(device.type)
+      );
     });
     return map(filteredDevices, device => device.name);
   }
@@ -135,7 +142,9 @@ class AppStore {
   /* Helpers */
 
   isVisible = (device: Device) => {
-    return device && device.name ? this.filteredDeviceNames.indexOf(device.name) !== -1 : false;
+    return device && device.name
+      ? this.filteredDeviceNames.indexOf(device.name) !== -1
+      : false;
   };
 }
 

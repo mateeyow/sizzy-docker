@@ -1,23 +1,29 @@
 // @flow
 import typeof store from 'stores/store';
-import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import React, {Component} from 'react';
+import {inject, observer} from 'mobx-react';
 import themes from 'styles/themes';
 
 //styled-components
 import {
   WelcomeBox,
-  Globe,
   IntroText,
   ExampleLink,
   UrlBar,
-  Content
+  Content,
+  Letter,
+  Shapes,
+  LetterAndShapes,
+  ShapesWrap
 } from './styles';
+import {ThemeProvider} from 'styled-components';
 
 //styles
-import { UrlInputStyles } from './styles';
+import {UrlInputStyles} from './styles';
 
-import { ThemeProvider } from 'styled-components';
+//img
+import LetterSvg from 'img/S.svg';
+import ShapesSvg from 'img/shapes.svg';
 
 type Props = {
   store: any | store
@@ -33,15 +39,22 @@ class WelcomeBoxComponent extends Component {
   };
 
   render() {
-    const { store } = this.props;
-    const { app } = store;
-    const { loading, showWelcomeContent } = app;
+    const {store} = this.props;
+    const {app} = store;
+    const {loading, showWelcomeContent} = app;
 
     return (
       <WelcomeBox>
-        <Globe loading={loading} name="globe" />
+
+        <LetterAndShapes loading={loading}>
+          <Letter loading={loading} src={LetterSvg} />
+          <ShapesWrap loading={loading}>
+            <Shapes src={ShapesSvg} />
+          </ShapesWrap>
+        </LetterAndShapes>
 
         <Content show={showWelcomeContent}>
+
           <IntroText> Welcome to Sizzy! Enter an url to start: </IntroText>
 
           <ThemeProvider theme={themes.dark}>

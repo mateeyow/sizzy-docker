@@ -58,13 +58,6 @@ export const ExampleLink = styled.div`
   }
 `;
 
-export const UrlBar = styled($UrlBar)`
-  margin: 20px;
-  width: 336px;
-  height: 50px;
-  font-size: 16px;
-`;
-
 export const Content = styled.div`
   position: relative;
   z-index: 2;
@@ -114,6 +107,22 @@ export const Shapes = styled.img`
    ${mustSize('100%')}
 `;
 
+export const MadeBy = styled.a`
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  position: absolute;
+  bottom: 13px;
+  font-weight: 300;
+  transition: color: 200ms linear;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 1);
+  }
+`;
+
 /* Size overrides for internal elements of other components */
 
 export const UrlInputStyles = {
@@ -129,3 +138,11 @@ export const UrlInputStyles = {
     }
   }
 };
+
+export const UrlBar = styled($UrlBar)`
+  margin: 20px;
+  max-width: 336px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 16px;
+`;

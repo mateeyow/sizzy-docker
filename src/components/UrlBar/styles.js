@@ -15,7 +15,8 @@ const sizes = {
 };
 
 export const UrlBar = styled.div`
-   width: 260px;
+   max-width: 260px;
+   width: 100%;
    height: 35px;
    position: relative;
    font-size: 14px;
@@ -42,7 +43,7 @@ export const UrlInput = styled.input`
 `;
 
 export const GoIcon = styled($Icon)`
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -59,11 +60,13 @@ export const GoIcon = styled($Icon)`
 }}
 
   transition: color 100ms linear;
+  
   &:hover {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.9);
   }
   
   &:active {
     color: rgba(255, 255, 255, 1);
+    transform: translateY(1px);
   }
 `;

@@ -14,7 +14,8 @@ import {
   Letter,
   Shapes,
   LetterAndShapes,
-  ShapesWrap
+  ShapesWrap,
+  MadeBy
 } from './styles';
 import {ThemeProvider} from 'styled-components';
 
@@ -65,6 +66,11 @@ class WelcomeBoxComponent extends Component {
             Click here to load an example!
           </ExampleLink>
         </Content>
+
+        {!loading &&
+          <MadeBy target="_blank" href="https://kitze.io">
+            {' '}made by @thekitze{' '}
+          </MadeBy>}
       </WelcomeBox>
     );
   }

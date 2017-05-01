@@ -1,5 +1,5 @@
 // @flow
-import type {InputEvent, DeviceSettings} from 'config/types';
+import type {DeviceSettings} from 'config/types';
 
 import store from 'stores/store';
 
@@ -49,8 +49,8 @@ class Settings {
     this.showSizes = true;
   };
 
-  @action setZoom = (e: InputEvent) => {
-    const zoom = e.target.value;
+  @action setZoom = (value: number) => {
+    const zoom = value;
     this.zoom = zoom;
     this.modifyGlobalSettings({zoom});
   };

@@ -7,11 +7,7 @@ const dark = {
     box-shadow: 0 0 13px rgba(0, 0, 0, 0.55);
   `,
   buttonStyle: `
-    border: 1px solid #b1b1b1;
-    
-    &:hover {
-      background-color: #2b2b2b;
-    }
+   
   `,
   urlInputStyle: `
     background-color: #211f21;

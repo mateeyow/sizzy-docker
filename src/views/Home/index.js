@@ -4,12 +4,12 @@ import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 
 //styled-components
-import {Home, Devices, Content} from './styles';
+import {Home, Content} from './styles';
 
 //components
-import Device from 'components/Device';
 import Toolbar from 'components/Toolbar';
 import WelcomeBox from 'components/WelcomeBox';
+import Sizzy from 'components/Sizzy';
 
 //external
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -29,20 +29,9 @@ class HomeComponent extends Component {
   };
 
   render() {
-    const {store: {app}, children} = this.props;
+    const {store: {app}} = this.props;
 
-    const {
-      theme,
-      urlToLoad,
-      url,
-      isVisible,
-      settings,
-      devices,
-      isValidUrl,
-      urlIsLoaded
-    } = app;
-
-    const {zoom, orientation} = settings;
+    const {isValidUrl, urlIsLoaded} = app;
 
     return (
       <Home>
@@ -59,23 +48,7 @@ class HomeComponent extends Component {
             {!urlIsLoaded && <WelcomeBox />}
           </ReactCSSTransitionGroup>
 
-          {isValidUrl &&
-            <Devices>
-              {devices.map((device, key) => (
-                <Device
-                  key={key}
-                  orientation={orientation}
-                  visible={isVisible(device)}
-                  zoom={zoom}
-                  theme={theme}
-                  url={url}
-                  urlToLoad={urlToLoad}
-                  device={device}
-                >
-                  {children}
-                </Device>
-              ))}
-            </Devices>}
+          {isValidUrl && <Sizzy />}
         </Content>
       </Home>
     );

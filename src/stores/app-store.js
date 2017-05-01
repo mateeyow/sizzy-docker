@@ -6,6 +6,7 @@ import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
 import allDevices from 'config/devices';
 import store from 'stores/store';
 import views from 'config/views';
+import {LOADING_TIME_MS} from 'config/constants';
 
 //models
 import Settings from 'stores/models/settings';
@@ -27,15 +28,14 @@ class AppStore {
   @observable urlToLoad: string;
   @observable loading: boolean = false;
   @observable showWelcomeContent: boolean = true;
+  @observable sidebarFullSize: boolean = true;
   @observable deviceTypeFilters: Filters = new Filters();
   @observable osFilters: Filters = new Filters();
-  settings: Settings = new Settings(true);
-
-  /* Props */
   @observable devices: Array<Device> = map(
     allDevices,
     device => new Device(device)
   );
+  settings: Settings = new Settings(true);
 
   /* Actions */
 
@@ -48,6 +48,10 @@ class AppStore {
     this.themeIndex = 1;
     this.settings.reset();
     this.updateAllDevices(this.settings.getValues());
+  };
+
+  @action toggleSidebar = (value: boolean) => {
+    this.sidebarFullSize = !this.sidebarFullSize;
   };
 
   @action setUrl = (url: string) => (this.url = url);
@@ -93,7 +97,7 @@ class AppStore {
 
     setTimeout(() => {
       this.loading = false;
-    }, 1800);
+    }, LOADING_TIME_MS);
   };
 
   @action loadCurrentUrl = () => {

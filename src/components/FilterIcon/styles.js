@@ -11,8 +11,8 @@ export const FilterIcon = styled($Icon)`
   cursor: pointer;
   opacity: ${p => (p.selected ? 1 : 0.3)};
   font-size: 28px !important;
-  margin-right: 30px;
   
+  ${p => (p.theme.sidebarFullSize ? `margin-right: 20px;` : `margin-bottom: 10px;`)}
   &:hover {
     ${p => cond(!p.selected, `
       opacity: 0.7;

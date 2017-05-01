@@ -1,4 +1,7 @@
-import {isUrlSameProtocol, getOppositeProtocol} from '../../src/utils/url-utils';
+import {
+  isUrlSameProtocol,
+  getOppositeProtocol
+} from '../../src/utils/url-utils';
 
 describe('Utils', () => {
   describe('urlIsSameProtocol', () => {

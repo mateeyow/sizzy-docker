@@ -2,9 +2,9 @@
 import Settings from 'stores/models/settings';
 import DeviceType from 'stores/models/device';
 
-import React, { Component } from 'react';
-import { observer } from 'mobx-react';
-import { deviceHeader } from 'styles/sizes';
+import React, {Component} from 'react';
+import {observer} from 'mobx-react';
+import {deviceHeader} from 'styles/sizes';
 import ORIENTATIONS from 'config/orientations';
 
 //external
@@ -37,7 +37,7 @@ type Props = {
 
   render() {
     const {
-      device: { width, name, height, settings },
+      device: {width, name, height, settings},
       children,
       theme,
       visible,
@@ -45,7 +45,7 @@ type Props = {
       urlToLoad
     } = this.props;
 
-    const { orientation, zoom, showSizes } = settings;
+    const {orientation, zoom, showSizes} = settings;
 
     //invert values in landscape
     const landscape = orientation === ORIENTATIONS.LANDSCAPE;

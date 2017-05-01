@@ -6,7 +6,7 @@ import {inject, observer} from 'mobx-react';
 import filterTypes from 'config/filter-types';
 
 //images
-import LogoSvg from './logo.svg';
+import LogoSvg from 'img/logo.svg';
 
 //styled-components
 import {
@@ -43,7 +43,13 @@ class ToolbarComponent extends Component {
 
   render() {
     const {store: {app}} = this.props;
-    const {osFilters, deviceTypeFilters, settings, isValidUrl, urlIsLoaded} = app;
+    const {
+      osFilters,
+      deviceTypeFilters,
+      settings,
+      isValidUrl,
+      urlIsLoaded
+    } = app;
     const {zoom, orientation} = settings;
 
     const smallZoom = zoom < 50;
@@ -52,7 +58,12 @@ class ToolbarComponent extends Component {
       <Toolbar>
 
         <ToolbarLeft>
-          <Logo onClick={app.resetToHome} src={LogoSvg} alt="Sizzy" width="70px" />
+          <Logo
+            onClick={app.resetToHome}
+            src={LogoSvg}
+            alt="Sizzy"
+            width="70px"
+          />
           {isValidUrl && <UrlBar />}
         </ToolbarLeft>
 
@@ -60,27 +71,35 @@ class ToolbarComponent extends Component {
           <Filters>
             <FilterIcon
               title="Toggle Apple devices"
-              toggleFilterfn={() => osFilters.toggleFilter(OS.APPLE, filterTypes.OS)}
+              toggleFilterfn={() =>
+                osFilters.toggleFilter(OS.APPLE, filterTypes.OS)}
               selected={osFilters.contains(OS.APPLE)}
               icon="apple"
             />
             <FilterIcon
               title="Toggle Android devices"
-              toggleFilterfn={() => osFilters.toggleFilter(OS.ANDROID, filterTypes.OS)}
+              toggleFilterfn={() =>
+                osFilters.toggleFilter(OS.ANDROID, filterTypes.OS)}
               selected={osFilters.contains(OS.ANDROID)}
               icon="android"
             />
             <FilterIcon
               title="Toggle mobile devices"
               toggleFilterfn={() =>
-                deviceTypeFilters.toggleFilter(DEVICE_TYPES.PHONE, filterTypes.DEVICE_TYPE)}
+                deviceTypeFilters.toggleFilter(
+                  DEVICE_TYPES.PHONE,
+                  filterTypes.DEVICE_TYPE
+                )}
               selected={deviceTypeFilters.contains(DEVICE_TYPES.PHONE)}
               icon="mobile"
             />
             <FilterIcon
               title="Toggle tablet devices"
               toggleFilterfn={() =>
-                deviceTypeFilters.toggleFilter(DEVICE_TYPES.TABLET, filterTypes.DEVICE_TYPE)}
+                deviceTypeFilters.toggleFilter(
+                  DEVICE_TYPES.TABLET,
+                  filterTypes.DEVICE_TYPE
+                )}
               selected={deviceTypeFilters.contains(DEVICE_TYPES.TABLET)}
               icon="tablet"
             />
@@ -96,10 +115,16 @@ class ToolbarComponent extends Component {
               >
                 <ButtonIcon name="sort-numeric-asc" />
               </ToolbarButton>
-              <ToolbarButton title="Reset all settings" onClick={app.resetAllSettings}>
+              <ToolbarButton
+                title="Reset all settings"
+                onClick={app.resetAllSettings}
+              >
                 <ButtonIcon name="repeat" />
               </ToolbarButton>
-              <ToolbarButton title="Switch orientation" onClick={app.settings.toggleOrientation}>
+              <ToolbarButton
+                title="Switch orientation"
+                onClick={app.settings.toggleOrientation}
+              >
                 <ButtonIcon orientation={orientation} name="mobile" />
               </ToolbarButton>
               <ToolbarButton title="Switch theme" onClick={app.switchTheme}>
@@ -110,7 +135,13 @@ class ToolbarComponent extends Component {
             <Zoom>
               <ZoomLabel> Zoom </ZoomLabel>
               <ZoomLevel>({zoom}%)</ZoomLevel>
-              <input type="range" min="25" max="100" onChange={app.settings.setZoom} value={zoom} />
+              <input
+                type="range"
+                min="25"
+                max="100"
+                onChange={app.settings.setZoom}
+                value={zoom}
+              />
             </Zoom>
           </ToolbarRightSide>}
 

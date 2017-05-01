@@ -1,11 +1,11 @@
 // @flow
-import type { InputEvent, DeviceSettings } from 'config/types';
+import type {InputEvent, DeviceSettings} from 'config/types';
 
 import store from 'stores/store';
 
-import { observable, action } from 'mobx';
+import {observable, action} from 'mobx';
 import ORIENTATIONS from 'config/orientations';
-import { getOppositeOrientation } from 'utils/utils';
+import {getOppositeOrientation} from 'utils/utils';
 
 class Settings {
   constructor(global: ?boolean) {
@@ -24,7 +24,7 @@ class Settings {
 
   /* Actions */
 
-  @action update = ({ zoom, orientation, showSizes }: DeviceSettings) => {
+  @action update = ({zoom, orientation, showSizes}: DeviceSettings) => {
     if (zoom !== undefined) {
       this.zoom = zoom;
     }
@@ -52,19 +52,19 @@ class Settings {
   @action setZoom = (e: InputEvent) => {
     const zoom = e.target.value;
     this.zoom = zoom;
-    this.modifyGlobalSettings({ zoom });
+    this.modifyGlobalSettings({zoom});
   };
 
   @action toggleShowSizes = () => {
     const showSizes = !this.showSizes;
     this.showSizes = showSizes;
-    this.modifyGlobalSettings({ showSizes });
+    this.modifyGlobalSettings({showSizes});
   };
 
   @action toggleOrientation = () => {
     const orientation = getOppositeOrientation(this.orientation);
     this.orientation = orientation;
-    this.modifyGlobalSettings({ orientation });
+    this.modifyGlobalSettings({orientation});
   };
 
   /* Helpers */

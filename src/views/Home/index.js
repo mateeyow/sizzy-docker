@@ -1,10 +1,10 @@
 // @flow
 import typeof store from 'stores/store';
-import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import React, {Component} from 'react';
+import {inject, observer} from 'mobx-react';
 
 //styled-components
-import { Home, Devices, Content } from './styles';
+import {Home, Devices, Content} from './styles';
 
 //components
 import Device from 'components/Device';
@@ -29,7 +29,7 @@ class HomeComponent extends Component {
   };
 
   render() {
-    const { store: { app }, children } = this.props;
+    const {store: {app}, children} = this.props;
 
     const {
       theme,
@@ -42,7 +42,7 @@ class HomeComponent extends Component {
       urlIsLoaded
     } = app;
 
-    const { zoom, orientation } = settings;
+    const {zoom, orientation} = settings;
 
     return (
       <Home>

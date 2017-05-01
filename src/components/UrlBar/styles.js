@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { iconSize } from 'utils/sc-utils';
+import {iconSize} from 'utils/sc-utils';
 
 //external
 import $Icon from 'react-fontawesome';
@@ -26,7 +26,7 @@ export const UrlInput = styled.input`
   height: 100%;
   margin-right: 35px;
   padding: ${p => {
-  const { padding = sizes.urlInput.padding } = p.styles || {};
+  const {padding = sizes.urlInput.padding} = p.styles || {};
   return `0 ${sizes.goIcon.size + sizes.goIcon.offsetRight * 2}px 0 ${padding}px;`;
 }}
   border: none;

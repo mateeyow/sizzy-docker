@@ -17,7 +17,14 @@ class FilterIconComponent extends Component {
   render() {
     const {selected, title, icon, toggleFilterfn} = this.props;
 
-    return <FilterIcon title={title} onClick={toggleFilterfn} name={icon} selected={selected} />;
+    return (
+      <FilterIcon
+        title={title}
+        onClick={toggleFilterfn}
+        name={icon}
+        selected={selected}
+      />
+    );
   }
 }
 

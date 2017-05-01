@@ -11,10 +11,10 @@ import 'font-awesome/css/font-awesome.css';
 
 //mobx
 import store from 'stores/store';
-import { Provider } from 'mobx-react';
+import {Provider} from 'mobx-react';
 
 //router
-import { startRouter } from 'mobx-router';
+import {startRouter} from 'mobx-router';
 import views from 'config/views';
 startRouter(views, store);
 

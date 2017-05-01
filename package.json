@@ -49,7 +49,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier --single-quote --print-width=100 --bracket-spacing=false --write",
+      "prettier --single-quote --bracket-spacing=false --write",
       "git add",
       "jest -i --findRelatedTests"
     ]
@@ -61,7 +61,7 @@
     "test": "jest -i",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "prettier-all": "prettier --single-quote --print-width=100 --bracket-spacing=false --write {src,__{tests,mocks}__}/**/*.js",
+    "prettier-all": "prettier --single-quote --bracket-spacing=false --write 'src/**/*.js'",
     "precommit": "lint-staged",
     "checks": "yarn flow && yarn test"
   }

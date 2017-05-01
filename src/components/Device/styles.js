@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
-import { deviceHeader } from 'styles/sizes';
-import { colorTransition } from 'styles/shared';
-import { rotateIconOnOrientationChange, whenHovering } from 'utils/sc-utils';
+import {deviceHeader} from 'styles/sizes';
+import {colorTransition} from 'styles/shared';
+import {rotateIconOnOrientationChange, whenHovering} from 'utils/sc-utils';
 
 //classnames
 export const buttonIconClassname = 'c-device__button-icon';

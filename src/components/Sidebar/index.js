@@ -5,10 +5,18 @@ import filterTypes from 'config/filter-types';
 import {OS, DEVICE_TYPES} from 'config/tags';
 
 //styled-components
-import {Sidebar, Filters} from './styles';
+import {
+  Sidebar,
+  Filters,
+  ButtonIcon,
+  ToolbarButton,
+  ToolbarButtons,
+  Top
+} from './styles';
 
 //components
 import FilterIcon from 'components/FilterIcon';
+import ZoomController from 'components/ZoomController';
 
 type Props = {
   store: any | store
@@ -26,11 +34,15 @@ class SidebarComponent extends Component {
   render() {
     const {store} = this.props;
     const {app} = store;
-    const {osFilters, deviceTypeFilters, urlIsLoaded} = app;
+    const {osFilters, deviceTypeFilters, urlIsLoaded, settings} = app;
+    const {zoom, orientation} = settings;
+
+    const smallZoom = zoom < 50;
 
     return (
       <Sidebar opened={true}>
-        {urlIsLoaded &&
+
+        <Top>
           <Filters>
             <FilterIcon
               title="Toggle Apple devices"
@@ -66,7 +78,36 @@ class SidebarComponent extends Component {
               selected={deviceTypeFilters.contains(DEVICE_TYPES.TABLET)}
               icon="tablet"
             />
-          </Filters>}
+          </Filters>
+
+          <ToolbarButtons>
+            <ToolbarButton
+              disabled={smallZoom}
+              title="Toggle sizes"
+              onClick={app.settings.toggleShowSizes}
+            >
+              <ButtonIcon name="sort-numeric-asc" />
+            </ToolbarButton>
+            <ToolbarButton
+              title="Reset all settings"
+              onClick={app.resetAllSettings}
+            >
+              <ButtonIcon name="repeat" />
+            </ToolbarButton>
+            <ToolbarButton
+              title="Switch orientation"
+              onClick={app.settings.toggleOrientation}
+            >
+              <ButtonIcon orientation={orientation} name="mobile" />
+            </ToolbarButton>
+            <ToolbarButton title="Switch theme" onClick={app.switchTheme}>
+              <ButtonIcon name="paint-brush" />
+            </ToolbarButton>
+          </ToolbarButtons>
+
+        </Top>
+        <ZoomController zoom={zoom} setZoom={app.settings.setZoom} />
+
       </Sidebar>
     );
   }

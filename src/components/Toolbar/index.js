@@ -8,21 +8,9 @@ import {inject, observer} from 'mobx-react';
 import LogoSvg from 'img/logo.svg';
 
 //styled-components
-import {
-  Toolbar,
-  ToolbarButton,
-  Zoom,
-  ZoomLabel,
-  ZoomLevel,
-  ToolbarButtons,
-  ToolbarRightSide,
-  ToolbarLeft,
-  Logo,
-  ButtonIcon
-} from './styles';
+import {Toolbar, ToolbarLeft, Logo} from './styles';
 
 //components
-import FilterIcon from 'components/FilterIcon';
 import UrlBar from 'components/UrlBar';
 
 type Props = {
@@ -40,10 +28,7 @@ class ToolbarComponent extends Component {
 
   render() {
     const {store: {app}} = this.props;
-    const {settings, isValidUrl, urlIsLoaded} = app;
-    const {zoom, orientation} = settings;
-
-    const smallZoom = zoom < 50;
+    const {isValidUrl} = app;
 
     return (
       <Toolbar>
@@ -57,46 +42,6 @@ class ToolbarComponent extends Component {
           />
           {isValidUrl && <UrlBar />}
         </ToolbarLeft>
-
-        {urlIsLoaded &&
-          <ToolbarRightSide>
-            <ToolbarButtons>
-              <ToolbarButton
-                disabled={smallZoom}
-                title="Toggle sizes"
-                onClick={app.settings.toggleShowSizes}
-              >
-                <ButtonIcon name="sort-numeric-asc" />
-              </ToolbarButton>
-              <ToolbarButton
-                title="Reset all settings"
-                onClick={app.resetAllSettings}
-              >
-                <ButtonIcon name="repeat" />
-              </ToolbarButton>
-              <ToolbarButton
-                title="Switch orientation"
-                onClick={app.settings.toggleOrientation}
-              >
-                <ButtonIcon orientation={orientation} name="mobile" />
-              </ToolbarButton>
-              <ToolbarButton title="Switch theme" onClick={app.switchTheme}>
-                <ButtonIcon name="paint-brush" />
-              </ToolbarButton>
-            </ToolbarButtons>
-
-            <Zoom>
-              <ZoomLabel> Zoom </ZoomLabel>
-              <ZoomLevel>({zoom}%)</ZoomLevel>
-              <input
-                type="range"
-                min="25"
-                max="100"
-                onChange={app.settings.setZoom}
-                value={zoom}
-              />
-            </Zoom>
-          </ToolbarRightSide>}
 
       </Toolbar>
     );

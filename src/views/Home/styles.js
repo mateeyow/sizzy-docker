@@ -11,12 +11,6 @@ export const Home = styled.div`
   ${flex.vertical}
 `;
 
-export const Devices = styled.div`
-  ${flex.horizontal}
-  ${flex.wrap}
-  padding: 30px;
-`;
-
 export const Content = styled.div`
   padding-top: ${toolbarHeight}px;  
   ${flex.vertical}

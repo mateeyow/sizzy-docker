@@ -33,6 +33,8 @@ yarn start
 
 3. Open it in your browser http://localhost:3033/
 
+Tip: You can also use ```npm``` instead of ```yarn```, and if you want to use ```yarn``` but you don't have it on your machine, [here's how to install it](https://yarnpkg.com/lang/en/docs/install/).```
+
 ## Dev issues
 
 ### Getting ```module not found``` errors

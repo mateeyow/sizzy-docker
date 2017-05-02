@@ -1,6 +1,6 @@
 // @flow
 import type {DeviceSettings} from 'config/types';
-import {observable, action, computed, toJS} from 'mobx';
+import {observable, action, computed} from 'mobx';
 import {isWebUri} from 'valid-url';
 import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
 import allDevices from 'config/devices';

@@ -45,7 +45,6 @@ class SidebarComponent extends Component {
       osFilters,
       deviceTypeFilters,
       sidebarFullSize,
-      urlIsLoaded,
       settings,
       toggleSidebar
     } = app;

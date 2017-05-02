@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
 import {colorTransition} from 'styles/shared';
-import {
-  rotateIconOnOrientationChange,
-  cond,
-  noSelect,
-  iconSize
-} from 'utils/sc-utils';
+import {rotateIconOnOrientationChange, cond, noSelect} from 'utils/sc-utils';
 
 //external
 import $Icon from 'react-fontawesome';
@@ -15,7 +10,7 @@ export const Sidebar = styled.div`
   ${flex.vertical}
   ${flex.spaceBetween}
   position: relative;
-  
+
   ${p => {
   const width = p.theme.sidebarFullSize ? 180 : 50;
   return `
@@ -23,10 +18,10 @@ export const Sidebar = styled.div`
       max-width: ${width}px;
      `;
 }}
-  
+
   background-color: #242831;
   border-right: 1px solid #1b1e25;
-  
+
   padding: ${p => (p.theme.sidebarFullSize ? '20px 11px' : '20px 0')};
   color: white;
 `;
@@ -58,7 +53,7 @@ export const ToolbarButton = styled.div`
  ${flex.horizontal}
  ${p => (p.theme.sidebarFullSize ? flex.centerHorizontalV : flex.centerHorizontal)}
  ${p => (p.theme.sidebarFullSize ? `margin-right: 10px;` : `margin-bottom: 7px;`)}
-  
+
 ${noSelect}
  min-width: 40px;
  cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
@@ -72,7 +67,7 @@ ${noSelect}
   &:hover {
     background-color: #1d2027;
   }
-  
+
   ${p => p.theme.buttonStyle}
 `;
 
@@ -91,7 +86,7 @@ export const ButtonIcon = styled($Icon)`
 `;
 
 export const ButtonText = styled.div`
-  
+
 `;
 
 export const ToggleSidebar = styled($Icon)`
@@ -110,7 +105,7 @@ export const ToggleSidebar = styled($Icon)`
     left: 19px;
     top: 11px;
   `)}
-    
+
   &:hover {
     opacity: 1;
   }

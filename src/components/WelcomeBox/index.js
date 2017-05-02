@@ -22,6 +22,9 @@ import {ThemeProvider} from 'styled-components';
 //styles
 import {UrlInputStyles} from './styles';
 
+//components
+import ChromeExtensionLink from 'components/ChromeExtensionLink';
+
 //img
 import LetterSvg from 'img/S.svg';
 import ShapesSvg from 'img/shapes.svg';
@@ -65,11 +68,13 @@ class WelcomeBoxComponent extends Component {
           <ExampleLink onClick={app.loadExampleUrl}>
             Click here to load an example!
           </ExampleLink>
+
+          <ChromeExtensionLink />
         </Content>
 
         {!loading &&
           <MadeBy target="_blank" href="https://kitze.io">
-            {' '}made by @thekitze{' '}
+            made by @thekitze
           </MadeBy>}
       </WelcomeBox>
     );

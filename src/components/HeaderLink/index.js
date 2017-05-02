@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 
 //styled-components
-import {HeaderLink, Icon, Link} from './styles';
+import {HeaderLink, Icon, Text} from './styles';
 
 type Props = {
   icon: string,
@@ -17,9 +17,9 @@ class HeaderLinkComponent extends Component {
     const {icon, text, link} = this.props;
 
     return (
-      <HeaderLink>
+      <HeaderLink href={link} target="_blank">
         <Icon name={icon} />
-        <Link href={link} target="_blank"> {text} </Link>
+        <Text> {text} </Text>
       </HeaderLink>
     );
   }

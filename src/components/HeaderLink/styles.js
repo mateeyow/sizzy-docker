@@ -9,6 +9,7 @@ export const HeaderLink = styled.a`
   opacity: 0.7;
   margin-right: 25px;
   cursor: pointer;
+  text-decoration: none;
   
   &:hover {
     opacity: 0.9;
@@ -16,16 +17,13 @@ export const HeaderLink = styled.a`
   
 `;
 
-export const Link = styled.a`
-  text-decoration: none;
+export const Text = styled.div`
   font-size: 16px;
   color: white;
   font-weight: 300;
-  cursor: pointer;
 `;
 
 export const Icon = styled($Icon)`
-  cursor: pointer;
   margin-right: 10px;
   font-size: 20px !important;
 `;

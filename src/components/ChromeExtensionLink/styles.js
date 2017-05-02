@@ -15,7 +15,7 @@ export const ChromeExtensionLink = styled.a`
   text-decoration: none;
   border: 1px solid ${color};
   border-radius: 4px;
-  padding: 10px 15px;
+  padding: 10px 13px;
   margin-top: 60px;
   
   &:hover {
@@ -28,12 +28,12 @@ export const ChromeExtensionLink = styled.a`
 `;
 
 export const Icon = styled($Icon)`
-  font-size: 30px !important;
-  margin-right: 15px;
+  font-size: 25px !important;
+  margin-right: 10px;
   transition: transform 500ms ease-in;
 `;
 
 export const Text = styled.div`
-  font-size: 16px;
-  font-weigth: 300;
+  font-size: 15px;
+  font-weight: 300;
 `;

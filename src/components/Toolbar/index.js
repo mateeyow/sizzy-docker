@@ -8,10 +8,11 @@ import {inject, observer} from 'mobx-react';
 import LogoSvg from 'img/logo.svg';
 
 //styled-components
-import {Toolbar, ToolbarLeft, Logo} from './styles';
+import {Toolbar, ToolbarLeft, ToolbarRight, Logo} from './styles';
 
 //components
 import UrlBar from 'components/UrlBar';
+import HeaderLink from 'components/HeaderLink';
 
 type Props = {
   store: any | store
@@ -42,6 +43,40 @@ class ToolbarComponent extends Component {
           />
           {isValidUrl && <UrlBar />}
         </ToolbarLeft>
+
+        <ToolbarRight>
+          <HeaderLink
+            icon="github"
+            text="Code"
+            link="https://github.com/kitze/sizzy"
+          />
+          {false &&
+            <HeaderLink
+              icon="question-circle"
+              text="FAQ"
+              link="https://github.com/kitze/sizzy"
+            />}
+          <HeaderLink
+            icon="money"
+            text="Support"
+            link="https://opencollective.com/sizzy"
+          />
+          <HeaderLink
+            icon="book"
+            text="Story"
+            link="https://medium.com/@kitze/introducing-sizzy-a-tool-for-developing-responsive-websites-crazy-fast-39a8c0061992"
+          />
+          <HeaderLink
+            icon="video-camera"
+            text="Live coding"
+            link="https://www.youtube.com/channel/UCP7W-OoVKoqS4BtyHu5eKxg"
+          />
+          <HeaderLink
+            icon="chrome"
+            text="Extension"
+            link="https://chrome.google.com/webstore/detail/sizzy/nfhlbmjiiogoelaflfclodlkncbdiefo"
+          />
+        </ToolbarRight>
 
       </Toolbar>
     );

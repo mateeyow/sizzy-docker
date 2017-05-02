@@ -31,3 +31,8 @@ export const ToolbarLeft = styled.div`
   ${flex.centerHorizontalV}
   min-width: 350px;
 `;
+
+export const ToolbarRight = styled.div`
+  ${flex.horizontal}
+  ${flex.centerHorizontalV}
+`;

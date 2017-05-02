@@ -63,6 +63,10 @@ class AppStore {
     if (urlToLoad !== this.urlToLoad) {
       let {protocol, host} = window.location;
 
+      if (!urlToLoad || urlToLoad.trim() === '') {
+        return false;
+      }
+
       //if invalid url (doesn't have protcol), try to append current protocol
       if (!isWebUri(urlToLoad)) {
         const urlWithProtocol = `${protocol}//${urlToLoad}`;

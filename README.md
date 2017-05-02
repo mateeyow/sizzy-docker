@@ -18,6 +18,12 @@ Add ```?url=http://your-url.com``` at the end of the url to share it with a prel
 
 Example: <a href="http://sizzy.co?url=https://preactjs.com" target="_blank">http://sizzy.co?url=https://preactjs.com</a>
 
+## Chrome extension
+Adds a Sizzy button in the Chrome toolbar, which on click opens any page directly into Sizzy.
+
+[Chrome Extension](https://chrome.google.com/webstore/detail/sizzy/nfhlbmjiiogoelaflfclodlkncbdiefo)  
+[Source](https://github.com/kitze/sizzy/tree/master/chrome-extension)
+
 ## Getting Started
 
 1. Install the dependencies:

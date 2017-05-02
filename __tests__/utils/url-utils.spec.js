@@ -5,7 +5,7 @@ import {
 
 describe('Utils', () => {
   describe('urlIsSameProtocol', () => {
-    it('should return false when same', () => {
+    it('should return true when same', () => {
       const result = isUrlSameProtocol('https://kitze.io', 'https:');
       expect(result).toEqual(true);
 

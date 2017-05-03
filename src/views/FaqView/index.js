@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import questions from 'config/faq-questions';
+import {toolbarHeight} from 'styles/sizes';
 
 //styled-components
 import {
@@ -15,17 +16,31 @@ import {
 @inject('store')
 @observer
 class FaqViewComponent extends Component {
+  componentDidMount() {
+    const {store} = this.props;
+    const {router} = store;
+    if (router.params && router.params.questionId) {
+      const elementToScrollTo = document.getElementById(
+        router.params.questionId
+      );
+      const newScrollPosition =
+        elementToScrollTo.offsetTop - toolbarHeight - 20;
+      document.getElementById('faq-view').scrollTop = newScrollPosition;
+    }
+  }
+
   render() {
     const {store} = this.props;
     const {router} = store;
 
     return (
-      <FaqView>
+      <FaqView id="faq-view">
         <PageTitle> FAQ </PageTitle>
 
         <Questions>
           {questions.map(question => (
             <Question
+              id={question.id}
               current={question.id === router.params.questionId}
               key={question.id}
             >

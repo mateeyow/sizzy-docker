@@ -58,10 +58,18 @@ const questions = [
     )
   },
   {
-    id: 'question-7',
-    title: ``,
+    id: 'question-to-scroll',
+    title: `This is the question that we want to scroll to`,
     answer: (
       <div>
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
+        Yup. If you looked around a little bit, you would've seen that it's in the header.
         Yup. If you looked around a little bit, you would've seen that it's in the header.
       </div>
     )
@@ -76,7 +84,7 @@ const questions = [
     )
   },
   {
-    id: 'question-9',
+    id: 'hello-world',
     title: 'Hello world?',
     answer: (
       <div>

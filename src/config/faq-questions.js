@@ -2,7 +2,7 @@ import React from 'react';
 
 const questions = [
   {
-    id: 'how-does-sizzy-compare-to-an-actual-device',
+    id: 'blank-white-boxes',
     title: 'Why are some sites showing as a blank white box?',
     answer: (
       <div>

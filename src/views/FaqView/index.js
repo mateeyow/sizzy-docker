@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
+import questions from 'config/faq-questions';
 
 //styled-components
-import {FaqView} from './styles';
+import {
+  FaqView,
+  PageTitle,
+  Question,
+  Questions,
+  QuestionTitle,
+  Answer
+} from './styles';
 
 @inject('store')
 @observer
@@ -13,7 +21,22 @@ class FaqViewComponent extends Component {
 
     return (
       <FaqView>
-        FaqView {router.params && router.params.questionId}
+        <PageTitle> FAQ </PageTitle>
+
+        <Questions>
+          {questions.map(question => (
+            <Question
+              current={question.id === router.params.questionId}
+              key={question.id}
+            >
+              <QuestionTitle>
+                {question.title}
+              </QuestionTitle>
+              <Answer> {question.answer} </Answer>
+            </Question>
+          ))}
+        </Questions>
+
       </FaqView>
     );
   }

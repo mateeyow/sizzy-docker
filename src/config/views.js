@@ -31,7 +31,7 @@ const views = {
   }),
   faq: new Route({
     id: 'faq',
-    path: '/faq/:questionId',
+    path: '/faq/:questionId?',
     component: <FaqView />
   })
 };

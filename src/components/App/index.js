@@ -5,8 +5,12 @@ import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import {ThemeProvider} from 'styled-components';
 
+//styled-components
+import {App} from './styles';
+
 //external
 import Body from 'react-body-classname';
+import {MobxRouter} from 'mobx-router';
 
 type Props = {
   store: any | store
@@ -21,17 +25,16 @@ class AppComponent extends Component {
     store: null
   };
 
-  //return the currentView (src/views/Home) for now until there are more pages, or Sizzy is used as a plugin for react-storybook
   render() {
-    const {store: {router, app}} = this.props;
+    const {store: {app}} = this.props;
     const {loading, isValidUrl} = app;
 
     return (
       <ThemeProvider theme={app.theme}>
-        <div>
+        <App>
           <Body className={loading || !isValidUrl ? 'hide-scroll' : ''} />
-          {router.currentView && router.currentView.component}
-        </div>
+          <MobxRouter />
+        </App>
       </ThemeProvider>
     );
   }

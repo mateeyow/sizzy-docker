@@ -28,7 +28,8 @@ class ToolbarComponent extends Component {
   props: Props;
 
   render() {
-    const {store: {app}} = this.props;
+    const {store} = this.props;
+    const {app} = store;
     const {isValidUrl} = app;
 
     return (
@@ -72,7 +73,7 @@ class ToolbarComponent extends Component {
           />
           <HeaderLink
             icon="video-camera"
-            text="Live coding"
+            text="Coding"
             link="https://www.youtube.com/playlist?list=PLeRG3Z4BGWXR1yE8176LxtAj0Xyb_VI7L"
           />
           <HeaderLink

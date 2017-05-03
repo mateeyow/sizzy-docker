@@ -10,7 +10,8 @@ import {
   Text,
   FullSize,
   Minimal,
-  ZoomLevelButton
+  ZoomLevelButton,
+  Input
 } from './styles';
 
 type Props = {
@@ -33,7 +34,7 @@ class ZoomControllerComponent extends Component {
               <ZoomLabel> Zoom </ZoomLabel>
               <ZoomLevel>({zoom}%)</ZoomLevel>
             </Text>
-            <input
+            <Input
               type="range"
               min="25"
               max="100"

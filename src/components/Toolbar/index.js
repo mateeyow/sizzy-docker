@@ -3,6 +3,7 @@ import typeof store from 'stores/store';
 
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
+import views from 'config/views';
 
 //images
 import LogoSvg from 'img/logo.svg';
@@ -29,7 +30,7 @@ class ToolbarComponent extends Component {
 
   render() {
     const {store} = this.props;
-    const {app} = store;
+    const {app, router} = store;
     const {isValidUrl} = app;
 
     return (
@@ -59,7 +60,8 @@ class ToolbarComponent extends Component {
           <HeaderLink
             icon="question-circle"
             text="FAQ"
-            link="https://github.com/kitze/sizzy"
+            view={views.faq}
+            router={router}
           />
           <HeaderLink
             icon="money"

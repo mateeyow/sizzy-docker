@@ -7,11 +7,6 @@ export const Toolbar = styled.div`
   ${flex.horizontal}
   ${flex.centerHorizontalV}
   ${flex.spaceBetween}
-  position: fixed;
-  top:0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
   transition: ${colorTransition};
   width: 100%;
   height: ${toolbarHeight}px;

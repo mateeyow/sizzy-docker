@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from 'stores/store';
 
 //components
 import App from 'components/App';
@@ -10,7 +11,6 @@ import 'normalize.css';
 import 'font-awesome/css/font-awesome.css';
 
 //mobx
-import store from 'stores/store';
 import {Provider} from 'mobx-react';
 
 //router

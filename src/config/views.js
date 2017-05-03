@@ -2,8 +2,9 @@ import React from 'react';
 import {Route} from 'mobx-router';
 import {isWebUri} from 'valid-url';
 
-//components
+//views
 import Home from 'views/Home';
+import FaqView from 'views/FaqView';
 
 const views = {
   home: new Route({
@@ -27,6 +28,11 @@ const views = {
       //if initial url is provided from query param, still check if it's http/https and inverse if needed
       store.app.setUrltoLoad(url, hasUrlParam, false);
     }
+  }),
+  faq: new Route({
+    id: 'faq',
+    path: '/faq/:questionId?',
+    component: <FaqView />
   })
 };
 

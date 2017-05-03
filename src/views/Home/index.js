@@ -7,7 +7,6 @@ import {inject, observer} from 'mobx-react';
 import {Home, Content} from './styles';
 
 //components
-import Toolbar from 'components/Toolbar';
 import WelcomeBox from 'components/WelcomeBox';
 import Sizzy from 'components/Sizzy';
 
@@ -35,8 +34,6 @@ class HomeComponent extends Component {
 
     return (
       <Home>
-
-        <Toolbar />
 
         <Content>
 

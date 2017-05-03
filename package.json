@@ -56,14 +56,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && yarn rename-index",
+    "build": "react-scripts build",
     "prebuild": "yarn checks",
     "test": "jest -i",
     "eject": "react-scripts eject",
     "flow": "flow",
     "prettier-all": "prettier --single-quote --bracket-spacing=false --write 'src/**/*.js'",
     "precommit": "lint-staged",
-    "checks": "yarn flow && yarn test",
-    "rename-index": "mv build/index.html build/200.html"
+    "checks": "yarn flow && yarn test"
   }
 }

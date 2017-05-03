@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import $Icon from 'react-fontawesome';
 import flex from 'styles/flex';
 
-export const HeaderLink = styled.a`
+//external
+import {Link} from 'mobx-router';
+
+const headerStyles = `
   ${flex.horizontal}
   ${flex.centerHorizontalV}
   color: white;
@@ -14,7 +17,10 @@ export const HeaderLink = styled.a`
   &:hover {
     opacity: 0.9;
   }
-  
+`;
+
+export const HeaderLink = styled.a`
+  ${headerStyles}
 `;
 
 export const Text = styled.div`
@@ -26,4 +32,8 @@ export const Text = styled.div`
 export const Icon = styled($Icon)`
   margin-right: 8px;
   font-size: 15px !important;
+`;
+
+export const RouterLink = styled(Link)`
+  ${headerStyles}
 `;

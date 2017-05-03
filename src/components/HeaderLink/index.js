@@ -7,9 +7,9 @@ import {HeaderLink, Icon, Text, RouterLink} from './styles';
 type Props = {
   icon: string,
   text: string,
-  link: ?string,
-  view: ?Object,
-  router: ?Object
+  link?: string,
+  view?: Object,
+  router?: Object
 };
 
 class HeaderLinkComponent extends Component {

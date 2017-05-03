@@ -40,3 +40,7 @@ export const ZoomLevelButton = styled.div`
   text-align: center;
   font-size: 12px;
 `;
+
+export const Input = styled.input`
+  width: 100%;
+`;

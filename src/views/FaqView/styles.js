@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {toolbarHeight} from 'styles/sizes';
 import {cond} from 'utils/sc-utils';
 import flex from 'styles/flex';
+import {Link} from 'mobx-router';
 
 export const FaqView = styled.div`
   ${flex.vertical}
@@ -24,10 +25,24 @@ export const Questions = styled.div`
   max-width: 700px;
 `;
 
-export const Question = styled.div`
+export const Question = styled(Link)`
+  text-decoration: none;
+  display: block;
+  color: white;
+
   margin-bottom: 20px;
   padding: 17px 20px;
   border: 1px solid rgba(241, 241, 241, 0.1);
+  cursor: pointer;
+  transition: all 50ms linear;
+  
+  
+  ${p => cond(!p.current, `
+    &:hover {
+      border: 1px solid rgba(241, 241, 241, 0.2);
+      background-color: rgba(34, 39, 47, 0.3);
+    }
+  `)}
   
   ${p => cond(p.current, `
     border: 1px solid rgba(241, 241, 241, 0.57);

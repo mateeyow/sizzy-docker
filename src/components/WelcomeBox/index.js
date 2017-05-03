@@ -3,6 +3,7 @@ import typeof store from 'stores/store';
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import themes from 'styles/themes';
+import views from 'config/views';
 
 //styled-components
 import {
@@ -44,7 +45,7 @@ class WelcomeBoxComponent extends Component {
 
   render() {
     const {store} = this.props;
-    const {app} = store;
+    const {app, router} = store;
     const {loading, showWelcomeContent} = app;
 
     return (

@@ -12,6 +12,9 @@ import {App} from './styles';
 import Body from 'react-body-classname';
 import {MobxRouter} from 'mobx-router';
 
+//components
+import Toolbar from 'components/Toolbar';
+
 type Props = {
   store: any | store
 };
@@ -32,6 +35,7 @@ class AppComponent extends Component {
     return (
       <ThemeProvider theme={app.theme}>
         <App>
+          <Toolbar />
           <Body className={loading || !isValidUrl ? 'hide-scroll' : ''} />
           <MobxRouter />
         </App>

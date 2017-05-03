@@ -35,6 +35,7 @@ class FaqViewComponent extends Component {
 
     return (
       <FaqView id="faq-view">
+
         <PageTitle> FAQ </PageTitle>
 
         <Questions>

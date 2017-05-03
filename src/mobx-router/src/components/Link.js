@@ -11,6 +11,7 @@ const Link = ({
   style = {},
   children,
   title = children,
+  preventDefault = true,
   router = store.router,
   ...props
 }) => {
@@ -30,7 +31,9 @@ const Link = ({
         const shouldNavigateManually = refresh || openinNewTab || cmdOrCtrl;
 
         if (!shouldNavigateManually) {
-          e.preventDefault();
+          if (preventDefault) {
+            e.preventDefault();
+          }
           router.goTo(view, params, store, queryParams);
         }
       }}

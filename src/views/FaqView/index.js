@@ -45,8 +45,8 @@ class FaqViewComponent extends Component {
         <Questions>
           {questions.map(question => (
             <Question
-              view={views.faq}
-              router={router}
+              onClick={() =>
+                router.goTo(views.faq, {questionId: question.id}, store)}
               params={{questionId: question.id}}
               id={question.id}
               current={question.id === router.params.questionId}

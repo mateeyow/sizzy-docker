@@ -7,7 +7,7 @@ export const HeaderLink = styled.a`
   ${flex.centerHorizontalV}
   color: white;
   opacity: 0.7;
-  margin-right: 25px;
+  margin-right: 20px;
   cursor: pointer;
   text-decoration: none;
   
@@ -18,12 +18,12 @@ export const HeaderLink = styled.a`
 `;
 
 export const Text = styled.div`
-  font-size: 16px;
+  font-size: 15px;
   color: white;
   font-weight: 300;
 `;
 
 export const Icon = styled($Icon)`
-  margin-right: 10px;
-  font-size: 20px !important;
+  margin-right: 8px;
+  font-size: 15px !important;
 `;

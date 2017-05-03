@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import {toolbarHeight} from 'styles/sizes';
 import {cond} from 'utils/sc-utils';
+import flex from 'styles/flex';
 
 export const FaqView = styled.div`
+  ${flex.vertical}
+  ${flex.centerVerticalH}
   color: white;
   padding: 0 30px 30px 30px;
   width: 100vw;

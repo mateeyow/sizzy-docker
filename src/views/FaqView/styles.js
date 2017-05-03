@@ -25,40 +25,41 @@ export const Questions = styled.div`
   max-width: 700px;
 `;
 
-export const Question = styled(Link)`
-  text-decoration: none;
-  display: block;
-  color: white;
-
+export const Question = styled.div`
   margin-bottom: 20px;
   padding: 17px 20px;
-  border: 1px solid rgba(241, 241, 241, 0.1);
   cursor: pointer;
   transition: all 50ms linear;
+  border: 1px solid rgba(0,0,0,0);
   
+  a {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.41);
+  }
   
   ${p => cond(!p.current, `
     &:hover {
-      border: 1px solid rgba(241, 241, 241, 0.2);
       background-color: rgba(34, 39, 47, 0.3);
     }
   `)}
   
   ${p => cond(p.current, `
-    border: 1px solid rgba(241, 241, 241, 0.57);
-    background-color: rgba(34, 39, 47, 0.8);
+    background-color: rgba(34, 39, 47, 0.6);
   `)}
 `;
 
 export const QuestionTitle = styled.div`
   font-size: 23px;
   font-weight: 300;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  line-height: 33px;
 `;
 
 export const Answer = styled.div`
   font-size: 18px;
   font-weight: 100;
   color: #bbbbbb;
-  line-height: 23px;
+  line-height: 25px;
 `;

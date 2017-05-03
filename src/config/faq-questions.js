@@ -7,7 +7,7 @@ const questions = [
     answer: (
       <div>
         Some websites are configured to prevent embedding into another site. Sizzy is showing the "devices" by embedding a website in multiple iframes.
-        Unfortunately, this is configured from their side and there's nothing we can do, at least in the web version of Sizzy.
+        Unfortunately, this is configured from their side and there's nothing we can do about it, at least in the web version of Sizzy.
         The
         {' '}
         <a
@@ -159,7 +159,7 @@ const questions = [
     title: `I really like Sizzy! How can I make sure that it will stick around and be updated with awesome new features?`,
     answer: (
       <div>
-        Currently, Sizzy is mostly being developed
+        Currently, the project is mostly being developed
         {' '}
         <a href="https://kitze.io">by 1 person</a>
         .

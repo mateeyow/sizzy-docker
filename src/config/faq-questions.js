@@ -27,7 +27,7 @@ const questions = [
     title: 'How does Sizzy compare to an actual device?',
     answer: (
       <div>
-        The app is missing few core features so it could represent 100% of what's on an actual device:
+        The app is missing a few core features in order to represent 100% of what's on an actual device:
         <ul>
           <li>
             {' '}
@@ -38,7 +38,7 @@ const questions = [
           <li> Scrollbars of the devices (iframes) are using viewport size </li>
         </ul>
 
-        All of these issues will be gone soon, but for now a general advice would be to trust Sizzy, but still do few final tests on a real device until all of these featuers are integrated.
+        All of these issues will be fixed soon, but for now it would be good to do few final tests on a real device.
       </div>
     )
   },

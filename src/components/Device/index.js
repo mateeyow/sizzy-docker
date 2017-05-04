@@ -28,7 +28,10 @@ type Props = {
   theme: Object,
   visible: boolean,
   url: string,
-  urlToLoad: string
+  urlToLoad: string,
+  toggleFocusDevice: (deviceId: string) => {},
+  appHasFocusedDevice: boolean,
+  devicesSpaceHeight: number
 };
 
 @observer class DeviceComponent extends Component {
@@ -37,12 +40,15 @@ type Props = {
 
   render() {
     const {
-      device: {width, name, height, settings},
+      device: {width, name, height, settings, id: deviceId},
       children,
       theme,
       visible,
       url,
-      urlToLoad
+      urlToLoad,
+      toggleFocusDevice,
+      appHasFocusedDevice,
+      devicesSpaceHeight
     } = this.props;
 
     const {orientation, zoom, showSizes} = settings;
@@ -52,7 +58,16 @@ type Props = {
     const iframeHeight = (landscape ? width : height) || 0;
     const iframeWidth = (landscape ? height : width) || 0;
 
-    const zoomValue = zoom * 0.01;
+    const focusedDevicePadding = 50;
+    const totalDeviceHeight = devicesSpaceHeight - focusedDevicePadding * 2;
+    const focusedDeviceZoom = totalDeviceHeight * 100 / iframeHeight;
+    const deviceNeedsZoomOut = iframeHeight > totalDeviceHeight;
+    const zoomToUse = appHasFocusedDevice
+      ? deviceNeedsZoomOut ? focusedDeviceZoom : 100
+      : zoom;
+
+    const zoomValue = zoomToUse * 0.01;
+
     const deviceHeaderTotalHeight =
       deviceHeader.height + deviceHeader.marginBottom;
 
@@ -85,13 +100,17 @@ type Props = {
     const showSize = showSizes === true && smallZoom === false;
 
     return (
-      <Device style={deviceStyle}>
+      <Device appHasFocusedDevice={appHasFocusedDevice} style={deviceStyle}>
         <Header>
           <Buttons>
             {!smallZoom &&
-              <Button onClick={() => alert('Soon! 🙈')} title="Settings">
-                <ButtonIcon className={buttonIconClassname} name="cog" />
+              <Button
+                onClick={() => toggleFocusDevice(deviceId)}
+                title="Settings"
+              >
+                <ButtonIcon className={buttonIconClassname} name="bullseye" />
               </Button>}
+
             <Button
               onClick={settings.toggleOrientation}
               title="Toggle orientation"

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import $Icon from 'react-fontawesome';
 import flex from 'styles/flex';
-
+import queries from 'styles/queries';
 const color = 'rgba(255,255,255, 0.8)';
 export const iconClassName = 'c-chrome-extension__icon';
 
@@ -24,6 +24,11 @@ export const ChromeExtensionLink = styled.a`
     .${iconClassName}{
       transform: rotate(360deg);
     }
+  }
+  
+  
+  ${queries.notAvailable} {
+    display: none;
   }
 `;
 

@@ -2,6 +2,7 @@ import styled, {keyframes} from 'styled-components';
 import flex from 'styles/flex';
 import {cond, size, mustSize} from 'utils/sc-utils';
 import {toolbarHeight} from 'styles/sizes';
+import queries from 'styles/queries';
 
 //components
 import $UrlBar from 'components/UrlBar';
@@ -44,6 +45,23 @@ export const IntroText = styled.div`
   color: white;
   font-size: 20px;
   font-weight: 300;
+  
+  ${queries.notAvailable}{
+    display: none;
+  }
+`;
+
+export const MobileText = styled.div`
+  color: white;
+  font-size: 17px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 0 30px;
+  
+  ${queries.onlyOnMobile}{
+    display: none;
+  }
 `;
 
 export const ExampleLink = styled.div`
@@ -52,6 +70,9 @@ export const ExampleLink = styled.div`
   font-size: 15px;
   text-decoration:underline;
   cursor: pointer;
+  ${queries.notAvailable}{
+    display: none;
+  }
   
   &:hover {
     opacity: 1;
@@ -73,10 +94,27 @@ export const LetterAndShapes = styled.div`
   ${flex.centerVertical}
   position: relative;
   ${size('250px')}
+  
+  ${queries.notAvailable}{
+    ${size('180px')}
+  }
+  
   margin-bottom: 30px;
   z-index: 0;
   transition: all 200ms linear;
   ${p => cond(p.loading, `transform: translateY(67px);`)}
+`;
+
+export const OnlyAvailable = styled.div`
+  display: none;
+  font-weight:300;
+  color: #e2e2e2;
+  font-size: 14px;
+  margin-top: 10px;
+  
+  ${queries.notAvailable}{
+    display: block;
+  }
 `;
 
 export const Letter = styled.img`
@@ -149,4 +187,8 @@ export const UrlBar = styled($UrlBar)`
   height: 50px;
   font-size: 16px;
   line-height: 16px;
+  
+  ${queries.notAvailable} {
+    display: none;
+  }
 `;

@@ -9,10 +9,9 @@ import views from 'config/views';
 import LogoSvg from 'img/logo.svg';
 
 //styled-components
-import {Toolbar, ToolbarLeft, ToolbarRight, Logo} from './styles';
+import {Toolbar, ToolbarLeft, ToolbarRight, Logo, UrlBar} from './styles';
 
 //components
-import UrlBar from 'components/UrlBar';
 import HeaderLink from 'components/HeaderLink';
 
 type Props = {

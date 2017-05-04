@@ -10,3 +10,8 @@ export type DeviceSettings = {
   orientation?: string,
   showSizes?: boolean
 };
+
+export type MeasureObject = {
+  height: number,
+  width: number
+};

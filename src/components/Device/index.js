@@ -29,7 +29,7 @@ type Props = {
   visible: boolean,
   url: string,
   urlToLoad: string,
-  toggleFocusDevice: (deviceId: string) => {},
+  toggleFocusDevice: (deviceId: ?string) => any,
   appHasFocusedDevice: boolean,
   devicesSpaceHeight: number
 };

@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import flex from 'styles/flex';
 import {deviceHeader} from 'styles/sizes';
 import {colorTransition} from 'styles/shared';
-import {rotateIconOnOrientationChange, whenHovering} from 'utils/sc-utils';
+import {
+  rotateIconOnOrientationChange,
+  whenHovering,
+  cond
+} from 'utils/sc-utils';
 
 //classnames
 export const buttonIconClassname = 'c-device__button-icon';
@@ -19,8 +23,10 @@ import $Icon from 'react-fontawesome';
 
 export const Device = styled.div`
   ${flex.vertical}
-  margin-right: 25px;
-  margin-bottom: 25px;
+  ${p => cond(!p.appHasFocusedDevice, `
+    margin-bottom: 25px
+    margin-right: 25px;
+  `)};
 `;
 
 export const Header = styled.div`

@@ -7,6 +7,7 @@ class Device {
   width: ?number;
   height: ?number;
   iconName: ?string;
+  id: ?string;
 
   settings: Settings = new Settings();
 
@@ -16,6 +17,7 @@ class Device {
     this.width = device.width;
     this.height = device.height;
     this.iconName = device.iconName;
+    this.id = device.id;
   }
 }
 

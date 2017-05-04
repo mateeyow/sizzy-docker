@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import flex from 'styles/flex';
 import {toolbarHeight} from 'styles/sizes';
 import {colorTransition} from 'styles/shared';
+import queries from 'styles/queries';
+
+//components
+import $UrlBar from 'components/UrlBar';
 
 export const Toolbar = styled.div`
   ${flex.horizontal}
@@ -30,4 +34,14 @@ export const ToolbarLeft = styled.div`
 export const ToolbarRight = styled.div`
   ${flex.horizontal}
   ${flex.centerHorizontalV}
+  
+  ${queries.notAvailable}{
+    display: none;
+  }
+`;
+
+export const UrlBar = styled($UrlBar)`
+   ${queries.notAvailable}{
+    display: none;
+  }
 `;

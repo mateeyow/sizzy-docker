@@ -6,7 +6,9 @@ import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
 import allDevices from 'config/devices';
 import store from 'stores/store';
 import views from 'config/views';
+//constants
 import {LOADING_TIME_MS} from 'config/constants';
+import KEYS from 'config/keys';
 
 //models
 import Settings from 'stores/models/settings';
@@ -20,14 +22,18 @@ import devices from 'config/devices';
 //lodash
 import filter from 'lodash/filter';
 import map from 'lodash/map';
+import findIndex from 'lodash/findIndex';
+import find from 'lodash/find';
 
 class AppStore {
   /* Observables */
   @observable themeIndex: number = 1;
   @observable url: string;
+  @observable devicesSpaceHeight: number;
   @observable urlToLoad: string;
   @observable loading: boolean = false;
   @observable showWelcomeContent: boolean = true;
+  @observable focusedDeviceId: string;
   @observable sidebarFullSize: boolean = true;
   @observable deviceTypeFilters: Filters = new Filters();
   @observable osFilters: Filters = new Filters();
@@ -39,6 +45,14 @@ class AppStore {
 
   /* Actions */
 
+  @action toggleFocusDevice = (focusedDeviceId: string) => {
+    this.focusedDeviceId = this.focusedDeviceId ? null : focusedDeviceId;
+  };
+
+  @action setFocusedDevice = (focusedDeviceId: string) => {
+    this.focusedDeviceId = focusedDeviceId;
+  };
+
   //update zoom/orientation values of all devices with the global settings
   @action updateAllDevices = (settings: DeviceSettings) => {
     this.devices.forEach(device => device.settings.update(settings));
@@ -48,10 +62,66 @@ class AppStore {
     this.themeIndex = 1;
     this.settings.reset();
     this.updateAllDevices(this.settings.getValues());
+    this.focusedDeviceId = undefined;
   };
 
   @action toggleSidebar = (value: boolean) => {
     this.sidebarFullSize = !this.sidebarFullSize;
+  };
+
+  @action focusDeviceOnLeft = () => {
+    const currentDeviceIndex = findIndex(this.devices, {
+      id: this.focusedDeviceId
+    });
+
+    let nextDeviceIndex = currentDeviceIndex === 0
+      ? this.devices.length - 1
+      : currentDeviceIndex - 1;
+
+    const nextDevice = this.devices[nextDeviceIndex];
+
+    if (nextDevice) {
+      this.setFocusedDevice(nextDevice.id);
+    }
+  };
+
+  @action focusDeviceOnRight = () => {
+    const currentDeviceIndex = findIndex(this.devices, {
+      id: this.focusedDeviceId
+    });
+
+    let nextDeviceIndex = currentDeviceIndex < this.devices.length - 1
+      ? currentDeviceIndex + 1
+      : 0;
+
+    const nextDevice = this.devices[nextDeviceIndex];
+
+    if (nextDevice) {
+      this.setFocusedDevice(nextDevice.id);
+    }
+  };
+
+  @action rotateCurrentDevice = () => {
+    if (this.focusedDeviceId) {
+      const currentDevice = find(this.devices, {id: this.focusedDeviceId});
+      if (currentDevice) {
+        currentDevice.settings.toggleOrientation();
+      }
+    }
+  };
+
+  @action onKeyPress = (key: string) => {
+    if (key === KEYS.ARROW_LEFT) {
+      this.focusDeviceOnLeft();
+    } else if (key === KEYS.ARROW_RIGHT) {
+      this.focusDeviceOnRight();
+    } else if (key === KEYS.R) {
+      this.rotateCurrentDevice();
+    } else if (key === KEYS.F) {
+      this.setFocusedDevice(
+        this.focusedDeviceId ? undefined : this.devices[0].id
+      );
+    }
   };
 
   @action setUrl = (url: string) => (this.url = url);
@@ -121,6 +191,10 @@ class AppStore {
     const exampleUrl = `${window.location.protocol}//kitze.io`;
     this.setUrl(exampleUrl);
     this.setUrltoLoad(exampleUrl, false, true);
+  };
+
+  @action onDevicesSpaceMeasure = ({height}) => {
+    this.devicesSpaceHeight = height;
   };
 
   /* Computed */

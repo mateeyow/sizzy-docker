@@ -3,7 +3,6 @@ import typeof store from 'stores/store';
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import themes from 'styles/themes';
-import views from 'config/views';
 
 //styled-components
 import {
@@ -16,7 +15,9 @@ import {
   Shapes,
   LetterAndShapes,
   ShapesWrap,
-  MadeBy
+  MadeBy,
+  MobileText,
+  OnlyAvailable
 } from './styles';
 import {ThemeProvider} from 'styled-components';
 
@@ -61,6 +62,14 @@ class WelcomeBoxComponent extends Component {
         <Content show={showWelcomeContent}>
 
           <IntroText> Welcome to Sizzy! Enter an url to start: </IntroText>
+
+          <MobileText>
+            A developer tool for testing responsive design on multiple devices at once.
+          </MobileText>
+
+          <OnlyAvailable>
+            It's only available on large devices 😞
+          </OnlyAvailable>
 
           <ThemeProvider theme={themes.dark}>
             <UrlBar styles={UrlInputStyles} />

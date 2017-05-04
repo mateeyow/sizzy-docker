@@ -1,5 +1,5 @@
 // @flow
-import type {DeviceSettings} from 'config/types';
+import type {DeviceSettings, MeasureObject} from 'config/types';
 import {observable, action, computed} from 'mobx';
 import {isWebUri} from 'valid-url';
 import {isUrlSameProtocol, getOppositeProtocol} from 'utils/url-utils';
@@ -33,7 +33,7 @@ class AppStore {
   @observable urlToLoad: string;
   @observable loading: boolean = false;
   @observable showWelcomeContent: boolean = true;
-  @observable focusedDeviceId: string;
+  @observable focusedDeviceId: ?string;
   @observable sidebarFullSize: boolean = true;
   @observable deviceTypeFilters: Filters = new Filters();
   @observable osFilters: Filters = new Filters();
@@ -45,7 +45,7 @@ class AppStore {
 
   /* Actions */
 
-  @action toggleFocusDevice = (focusedDeviceId: string) => {
+  @action toggleFocusDevice = (focusedDeviceId: ?string) => {
     this.focusedDeviceId = this.focusedDeviceId ? null : focusedDeviceId;
   };
 
@@ -65,38 +65,30 @@ class AppStore {
     this.focusedDeviceId = undefined;
   };
 
-  @action toggleSidebar = (value: boolean) => {
+  @action toggleSidebar = () => {
     this.sidebarFullSize = !this.sidebarFullSize;
   };
 
-  @action focusDeviceOnLeft = () => {
+  @action navigateToDeviceInDirection = (direction: 'left' | 'right') => {
     const currentDeviceIndex = findIndex(this.devices, {
       id: this.focusedDeviceId
     });
 
-    let nextDeviceIndex = currentDeviceIndex === 0
-      ? this.devices.length - 1
-      : currentDeviceIndex - 1;
+    let nextDeviceIndex = 0;
 
-    const nextDevice = this.devices[nextDeviceIndex];
-
-    if (nextDevice) {
-      this.setFocusedDevice(nextDevice.id);
+    if (direction === 'left') {
+      nextDeviceIndex = currentDeviceIndex === 0
+        ? this.devices.length - 1
+        : currentDeviceIndex - 1;
+    } else if (direction === 'right') {
+      nextDeviceIndex = currentDeviceIndex < this.devices.length - 1
+        ? currentDeviceIndex + 1
+        : 0;
     }
-  };
-
-  @action focusDeviceOnRight = () => {
-    const currentDeviceIndex = findIndex(this.devices, {
-      id: this.focusedDeviceId
-    });
-
-    let nextDeviceIndex = currentDeviceIndex < this.devices.length - 1
-      ? currentDeviceIndex + 1
-      : 0;
 
     const nextDevice = this.devices[nextDeviceIndex];
 
-    if (nextDevice) {
+    if (nextDevice && nextDevice.id) {
       this.setFocusedDevice(nextDevice.id);
     }
   };
@@ -112,19 +104,33 @@ class AppStore {
 
   @action onKeyPress = (key: string) => {
     if (key === KEYS.ARROW_LEFT) {
-      this.focusDeviceOnLeft();
+      this.navigateToDeviceInDirection('left');
     } else if (key === KEYS.ARROW_RIGHT) {
-      this.focusDeviceOnRight();
+      this.navigateToDeviceInDirection('right');
     } else if (key === KEYS.R) {
       this.rotateCurrentDevice();
     } else if (key === KEYS.F) {
-      this.setFocusedDevice(
-        this.focusedDeviceId ? undefined : this.devices[0].id
-      );
+      this.toggleFocusedMode();
+    }
+  };
+
+  @action clearFocusedDevice = () => {
+    this.focusedDeviceId = null;
+  };
+
+  @action toggleFocusedMode = () => {
+    if (this.focusedDeviceId) {
+      this.clearFocusedDevice();
+    } else {
+      let firstDevice = this.devices[0];
+      if (firstDevice && firstDevice.id) {
+        this.setFocusedDevice(firstDevice.id);
+      }
     }
   };
 
   @action setUrl = (url: string) => (this.url = url);
+
   @action setUrltoLoad = (
     urlToLoad: string,
     redirectOnProtocolChange: boolean = false,
@@ -193,7 +199,7 @@ class AppStore {
     this.setUrltoLoad(exampleUrl, false, true);
   };
 
-  @action onDevicesSpaceMeasure = ({height}) => {
+  @action onDevicesSpaceMeasure = ({height}: MeasureObject) => {
     this.devicesSpaceHeight = height;
   };
 

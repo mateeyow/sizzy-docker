@@ -103,13 +103,17 @@ class AppStore {
   };
 
   @action onKeyPress = (key: string) => {
-    if (key === KEYS.ARROW_LEFT) {
-      this.navigateToDeviceInDirection('left');
-    } else if (key === KEYS.ARROW_RIGHT) {
-      this.navigateToDeviceInDirection('right');
-    } else if (key === KEYS.R) {
-      this.rotateCurrentDevice();
-    } else if (key === KEYS.F) {
+    if (this.focusedDeviceId) {
+      if (key === KEYS.ARROW_LEFT) {
+        this.navigateToDeviceInDirection('left');
+      } else if (key === KEYS.ARROW_RIGHT) {
+        this.navigateToDeviceInDirection('right');
+      } else if (key === KEYS.R) {
+        this.rotateCurrentDevice();
+      }
+    }
+
+    if (key === KEYS.F) {
       this.toggleFocusedMode();
     }
   };

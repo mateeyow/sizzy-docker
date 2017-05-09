@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
+import {colorTransition} from 'styles/shared';
 
 export const ZoomController = styled.div`
   color: ${p => p.theme.color};
@@ -39,6 +40,7 @@ export const ZoomLevelButton = styled.div`
   
   text-align: center;
   font-size: 12px;
+  transition: ${colorTransition};
 `;
 
 export const Input = styled.input`

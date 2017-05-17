@@ -121,11 +121,20 @@ class SidebarComponent extends Component {
                 <ButtonIcon name="television" />
                 {sidebarFullSize &&
                   <ButtonText>
-
                     {app.settings.showSizes ? 'Hide ' : 'Show '}
-
                     dimensions
+                  </ButtonText>}
+              </ToolbarButton>
 
+              <ToolbarButton
+                title="Toggle keyboard"
+                onClick={app.settings.toggleKeyboard}
+              >
+                <ButtonIcon name="keyboard-o" />
+                {sidebarFullSize &&
+                  <ButtonText>
+                    {app.settings.showKeyboard ? 'Hide ' : 'Show '}
+                    keyboard
                   </ButtonText>}
               </ToolbarButton>
 

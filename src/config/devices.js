@@ -1,5 +1,18 @@
 import {DEVICE_TYPES, OS} from 'config/tags';
 
+//keyboards
+import iphone5keyboard from 'img/iphone-5-keyboard.png';
+import iphone5keyboardlandscape from 'img/iphone-5-keyboard-landscape.png';
+
+import iphone6keyboard from 'img/iphone-6-keyboard.png';
+import iphone6keyboardlandscape from 'img/iphone-6-keyboard-landscape.png';
+
+import iphone7keyboardportrait from 'img/iphone-7-plus-keyboard-portrait.png';
+import iphone7keyboardlandscape from 'img/iphone-7-plus-keyboard-landscape.png';
+
+import ipadAirKeyboardPortrait from 'img/ipad-air-keyboard-portrait.png';
+import ipadAirKeyboardLandscape from 'img/ipad-air-keyboard-landscape.png';
+
 const devices = {
   iPhone4: {
     id: 'iphone4',
@@ -8,7 +21,11 @@ const devices = {
     type: DEVICE_TYPES.PHONE,
     width: 320,
     height: 480,
-    iconName: ''
+    iconName: '',
+    keyboardImg: {
+      portrait: iphone5keyboard,
+      landscape: iphone5keyboardlandscape
+    }
   },
   iPhone5: {
     id: 'iphone5',
@@ -16,7 +33,11 @@ const devices = {
     os: OS.APPLE,
     type: DEVICE_TYPES.PHONE,
     width: 320,
-    height: 568
+    height: 568,
+    keyboardImg: {
+      portrait: iphone5keyboard,
+      landscape: iphone5keyboardlandscape
+    }
   },
   iPhone6: {
     id: 'iphone6',
@@ -24,7 +45,11 @@ const devices = {
     os: OS.APPLE,
     type: DEVICE_TYPES.PHONE,
     width: 375,
-    height: 667
+    height: 667,
+    keyboardImg: {
+      portrait: iphone6keyboard,
+      landscape: iphone6keyboardlandscape
+    }
   },
   iPhone7plus: {
     id: 'iphone7plus',
@@ -32,7 +57,11 @@ const devices = {
     os: OS.APPLE,
     type: DEVICE_TYPES.PHONE,
     width: 414,
-    height: 736
+    height: 736,
+    keyboardImg: {
+      portrait: iphone7keyboardportrait,
+      landscape: iphone7keyboardlandscape
+    }
   },
   iPadAir: {
     id: 'ipadair',
@@ -40,7 +69,11 @@ const devices = {
     os: OS.APPLE,
     type: DEVICE_TYPES.TABLET,
     width: 768,
-    height: 1024
+    height: 1024,
+    keyboardImg: {
+      portrait: ipadAirKeyboardPortrait,
+      landscape: ipadAirKeyboardLandscape
+    }
   },
   nexus6p: {
     id: 'nexus6p',

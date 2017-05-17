@@ -4,7 +4,8 @@ const KEYS = {
   ARROW_UP: 'ArrowUp',
   ARROW_DOWN: 'ArrowDown',
   R: 'r',
-  F: 'f'
+  F: 'f',
+  K: 'k'
 };
 
 export default KEYS;

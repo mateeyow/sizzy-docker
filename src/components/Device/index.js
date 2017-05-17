@@ -19,7 +19,8 @@ import {
   Device,
   Buttons,
   Size,
-  buttonIconClassname
+  buttonIconClassname,
+  Keyboard
 } from './styles';
 
 type Props = {
@@ -40,7 +41,7 @@ type Props = {
 
   render() {
     const {
-      device: {width, name, height, settings, id: deviceId},
+      device: {width, name, height, settings, keyboardImg, id: deviceId},
       children,
       theme,
       visible,
@@ -51,7 +52,7 @@ type Props = {
       devicesSpaceHeight
     } = this.props;
 
-    const {orientation, zoom, showSizes} = settings;
+    const {orientation, zoom, showSizes, showKeyboard} = settings;
 
     //invert values in landscape
     const landscape = orientation === ORIENTATIONS.LANDSCAPE;
@@ -99,6 +100,8 @@ type Props = {
     const smallZoom = zoom < 50;
     const showSize = showSizes === true && smallZoom === false;
 
+    const shouldShowKeyboard = keyboardImg && showKeyboard;
+
     return (
       <Device appHasFocusedDevice={appHasFocusedDevice} style={deviceStyle}>
         <Header>
@@ -109,6 +112,19 @@ type Props = {
                 title="Settings"
               >
                 <ButtonIcon className={buttonIconClassname} name="bullseye" />
+              </Button>}
+
+            {!smallZoom &&
+              <Button
+                value={settings.showKeyboard}
+                onClick={settings.toggleKeyboard}
+                title="Keyboard"
+              >
+                <ButtonIcon
+                  className={buttonIconClassname}
+                  fontSize={14}
+                  name="keyboard-o"
+                />
               </Button>}
 
             <Button
@@ -130,7 +146,18 @@ type Props = {
           </Size>
         </Header>
 
-        {urlToLoad && <iframe src={urlToLoad} {...frameProps} />}
+        {urlToLoad &&
+          <div>
+            <iframe src={urlToLoad} {...frameProps} />
+            {shouldShowKeyboard &&
+              <Keyboard
+                src={
+                  orientation === ORIENTATIONS.LANDSCAPE
+                    ? keyboardImg.landscape
+                    : keyboardImg.portrait
+                }
+              />}
+          </div>}
 
         {/* Allows Sizzy to be used as a component/plugin in react-storybook, etc */}
         {hasChildren &&

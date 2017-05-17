@@ -20,11 +20,17 @@ class Settings {
 
   @observable zoom: number = 100;
   @observable showSizes: boolean = true;
+  @observable showKeyboard: boolean = false;
   @observable orientation: string = ORIENTATIONS.PORTRAIT;
 
   /* Actions */
 
-  @action update = ({zoom, orientation, showSizes}: DeviceSettings) => {
+  @action update = ({
+    zoom,
+    orientation,
+    showSizes,
+    showKeyboard
+  }: DeviceSettings) => {
     if (zoom !== undefined) {
       this.zoom = zoom;
     }
@@ -33,6 +39,9 @@ class Settings {
     }
     if (showSizes !== undefined) {
       this.showSizes = showSizes;
+    }
+    if (showKeyboard !== undefined) {
+      this.showKeyboard = showKeyboard;
     }
   };
 
@@ -47,6 +56,7 @@ class Settings {
     this.zoom = 100;
     this.orientation = ORIENTATIONS.PORTRAIT;
     this.showSizes = true;
+    this.showKeyboard = false;
   };
 
   @action setZoom = (value: number) => {
@@ -67,12 +77,19 @@ class Settings {
     this.modifyGlobalSettings({orientation});
   };
 
+  @action toggleKeyboard = () => {
+    let showKeyboard = !this.showKeyboard;
+    this.showKeyboard = showKeyboard;
+    this.modifyGlobalSettings({showKeyboard});
+  };
+
   /* Helpers */
 
   getValues = (): DeviceSettings => ({
     zoom: this.zoom,
     showSizes: this.showSizes,
-    orientation: this.orientation
+    orientation: this.orientation,
+    toggleKeyboard: this.showKeyboard
   });
 }
 

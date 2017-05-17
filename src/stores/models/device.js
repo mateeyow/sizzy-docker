@@ -7,6 +7,10 @@ class Device {
   width: ?number;
   height: ?number;
   iconName: ?string;
+  keyboardImg: ?{
+    portrait: string,
+    landscape: string
+  };
   id: ?string;
 
   settings: Settings = new Settings();
@@ -18,6 +22,7 @@ class Device {
     this.height = device.height;
     this.iconName = device.iconName;
     this.id = device.id;
+    this.keyboardImg = device.keyboardImg;
   }
 }
 

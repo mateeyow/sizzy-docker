@@ -29,7 +29,7 @@ class SizzyComponent extends Component {
     store: null
   };
 
-  @keydown('left', 'right', 'r', 'f')
+  @keydown('left', 'right', 'r', 'f', 'k')
   submit(event: Object) {
     this.props.store.app.onKeyPress(event.key);
   }

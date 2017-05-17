@@ -61,9 +61,10 @@ export const Button = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.27);
   border-radius: 4px;
   transition: all 50ms linear;
+  margin-right: 5px;
   
-  &:first-child {
-    margin-right: 5px;
+  &:last-child {
+    margin: 0;
   }
   
   &:hover {
@@ -73,6 +74,12 @@ export const Button = styled.div`
   ${whenHovering(buttonIconClassname, `
     color: rgba(255, 255, 255, 0.8);
   `)}
+  
+   ${p => cond(p.value === true, `
+      .${buttonIconClassname}{
+        color: rgba(255, 255, 255, 0.8);
+      }
+   `)}
 `;
 
 export const Size = styled.div`
@@ -87,5 +94,12 @@ export const ButtonIcon = styled($Icon)`
   transition: ${colorTransition};
   ${rotateIconOnOrientationChange};
   color: rgba(255,255,255, 0.27);
-  font-size: ${sizes.button.iconSize}px !important;
+  font-size: ${p => p.fontSize || sizes.button.iconSize}px !important;
+`;
+
+export const Keyboard = styled.img`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
 `;

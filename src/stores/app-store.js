@@ -94,11 +94,16 @@ class AppStore {
   };
 
   @action rotateCurrentDevice = () => {
-    if (this.focusedDeviceId) {
-      const currentDevice = find(this.devices, {id: this.focusedDeviceId});
-      if (currentDevice) {
-        currentDevice.settings.toggleOrientation();
-      }
+    const currentDevice = this.getCurrentDevice();
+    if (currentDevice) {
+      currentDevice.settings.toggleOrientation();
+    }
+  };
+
+  @action toggleKeyboardOnDevice = () => {
+    const currentDevice = this.getCurrentDevice();
+    if (currentDevice) {
+      currentDevice.settings.toggleKeyboard();
     }
   };
 
@@ -110,6 +115,8 @@ class AppStore {
         this.navigateToDeviceInDirection('right');
       } else if (key === KEYS.R) {
         this.rotateCurrentDevice();
+      } else if (key === KEYS.K) {
+        this.toggleKeyboardOnDevice();
       }
     }
 
@@ -232,6 +239,14 @@ class AppStore {
   }
 
   /* Helpers */
+
+  getCurrentDevice = (): ?Device => {
+    if (this.focusedDeviceId) {
+      const currentDevice = find(this.devices, {id: this.focusedDeviceId});
+      return currentDevice;
+    }
+    return null;
+  };
 
   isVisible = (device: Device) => {
     return device && device.name

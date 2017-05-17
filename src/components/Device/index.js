@@ -152,9 +152,10 @@ type Props = {
             {shouldShowKeyboard &&
               <Keyboard
                 src={
-                  orientation === ORIENTATIONS.LANDSCAPE
-                    ? keyboardImg.landscape
-                    : keyboardImg.portrait
+                  keyboardImg &&
+                    (orientation === ORIENTATIONS.LANDSCAPE
+                      ? keyboardImg.landscape
+                      : keyboardImg.portrait)
                 }
               />}
           </div>}

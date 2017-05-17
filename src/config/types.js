@@ -8,7 +8,8 @@ export type InputEvent = {
 export type DeviceSettings = {
   zoom?: number,
   orientation?: string,
-  showSizes?: boolean
+  showSizes?: boolean,
+  showKeyboard?: boolean
 };
 
 export type MeasureObject = {

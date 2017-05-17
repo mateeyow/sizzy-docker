@@ -31,6 +31,8 @@ class Settings {
     showSizes,
     showKeyboard
   }: DeviceSettings) => {
+    console.log('showKeyboard', showKeyboard);
+
     if (zoom !== undefined) {
       this.zoom = zoom;
     }
@@ -89,7 +91,7 @@ class Settings {
     zoom: this.zoom,
     showSizes: this.showSizes,
     orientation: this.orientation,
-    toggleKeyboard: this.showKeyboard
+    showKeyboard: this.showKeyboard
   });
 }
 

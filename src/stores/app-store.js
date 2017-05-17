@@ -61,7 +61,8 @@ class AppStore {
   @action resetAllSettings = () => {
     this.themeIndex = 1;
     this.settings.reset();
-    this.updateAllDevices(this.settings.getValues());
+    const currentSettings = this.settings.getValues();
+    this.updateAllDevices(currentSettings);
     this.focusedDeviceId = undefined;
   };
 

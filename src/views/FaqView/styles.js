@@ -1,3 +1,4 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import {toolbarHeight} from 'styles/sizes';
 import {cond} from 'utils/sc-utils';
@@ -30,24 +31,32 @@ export const Question = styled.div`
   padding: 17px 20px;
   cursor: pointer;
   transition: all 50ms linear;
-  border: 1px solid rgba(0,0,0,0);
-  
+  border: 1px solid rgba(0, 0, 0, 0);
+
   a {
     color: white;
     text-decoration: none;
     padding-bottom: 3px;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.41);
   }
-  
-  ${p => cond(!p.current, `
+
+  ${p =>
+    cond(
+      !p.current,
+      `
     &:hover {
       background-color: rgba(34, 39, 47, 0.3);
     }
-  `)}
-  
-  ${p => cond(p.current, `
+  `
+    )}
+
+  ${p =>
+    cond(
+      p.current,
+      `
     background-color: rgba(34, 39, 47, 0.6);
-  `)}
+  `
+    )}
 `;
 
 export const QuestionTitle = styled.div`

@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @flow
 import typeof store from 'stores/store';
 import React, {Component} from 'react';
@@ -51,7 +52,6 @@ class WelcomeBoxComponent extends Component {
 
     return (
       <WelcomeBox>
-
         <LetterAndShapes loading={loading}>
           <Letter loading={loading} src={LetterSvg} />
           <ShapesWrap loading={loading}>
@@ -60,16 +60,14 @@ class WelcomeBoxComponent extends Component {
         </LetterAndShapes>
 
         <Content show={showWelcomeContent}>
-
           <IntroText> Welcome to Sizzy! Enter an url to start: </IntroText>
 
           <MobileText>
-            A developer tool for testing responsive design on multiple devices at once.
+            A developer tool for testing responsive design on multiple devices
+            at once.
           </MobileText>
 
-          <OnlyAvailable>
-            It's only available on large devices 😞
-          </OnlyAvailable>
+          <OnlyAvailable>It's only available on large devices 😞</OnlyAvailable>
 
           <ThemeProvider theme={themes.dark}>
             <UrlBar styles={UrlInputStyles} />
@@ -82,10 +80,11 @@ class WelcomeBoxComponent extends Component {
           <ChromeExtensionLink />
         </Content>
 
-        {!loading &&
+        {!loading && (
           <MadeBy target="_blank" href="https://kitze.io">
             made by @thekitze
-          </MadeBy>}
+          </MadeBy>
+        )}
       </WelcomeBox>
     );
   }

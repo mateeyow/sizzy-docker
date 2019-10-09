@@ -12,6 +12,7 @@ const questions = [
         {' '}
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href="https://chrome.google.com/webstore/detail/sizzy/nfhlbmjiiogoelaflfclodlkncbdiefo"
         >
           Chrome Extension
@@ -86,7 +87,7 @@ const questions = [
         You cannot point to an index.html file that's starting with file://.
         If you need a simple server to run your local files you can use
         {' '}
-        <a href="https://www.npmjs.com/package/http-server" target="_blank">
+        <a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noopener noreferrer">
           http-server
         </a>
         {' '}
@@ -103,6 +104,7 @@ const questions = [
         The problem is better explained in <a
           href="https://github.com/kitze/sizzy/issues/21"
           target="_blank"
+          rel="noopener noreferrer"
         >
           this issue
         </a> on GitHub.
@@ -122,6 +124,7 @@ const questions = [
         <a
           href="https://github.com/kitze/sizzy/tree/master/chrome-extension"
           target="_blank"
+          rel="noopener noreferrer"
         >
           open sourced
         </a>
@@ -143,6 +146,7 @@ const questions = [
         <a
           href="https://github.com/kitze/sizzy/blob/master/chrome-extension/manifest.json#L19"
           target="_blank"
+          rel="noopener noreferrer"
         >
           the following permissions:
         </a>
@@ -165,13 +169,13 @@ const questions = [
         .
         Development will continue as usual but it would help greatly if you support this project with a one-time, or a recurring donation
         {' '}
-        <a target="_blank" href="https://opencollective.com/sizzy">
+        <a target="_blank" rel="noopener noreferrer" href="https://opencollective.com/sizzy">
           {' '}on OpenCollective
         </a>
         .
         If you would like to discuss about a different way of supporting Sizzy, you can
         {' '}
-        <a target="_blank" href="https://kitze.io"> contact me here</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://kitze.io"> contact me here</a>
         .
       </div>
     )

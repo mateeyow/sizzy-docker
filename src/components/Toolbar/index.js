@@ -1,7 +1,6 @@
 /* eslint-disable */
 // @flow
 import typeof store from 'stores/store';
-
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import views from 'config/views';

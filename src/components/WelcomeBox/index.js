@@ -25,8 +25,6 @@ import {ThemeProvider} from 'styled-components';
 //styles
 import {UrlInputStyles} from './styles';
 
-//components
-import ChromeExtensionLink from 'components/ChromeExtensionLink';
 
 //img
 import LetterSvg from 'img/S.svg';
@@ -77,7 +75,6 @@ class WelcomeBoxComponent extends Component {
             Click here to load an example!
           </ExampleLink>
 
-          <ChromeExtensionLink />
         </Content>
 
         {!loading && (

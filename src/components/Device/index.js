@@ -148,7 +148,7 @@ type Props = {
 
         {urlToLoad &&
           <div>
-            <iframe src={urlToLoad} {...frameProps} />
+            <iframe title={deviceId} src={urlToLoad} {...frameProps} />
             {shouldShowKeyboard &&
               <Keyboard
                 src={

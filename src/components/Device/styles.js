@@ -7,6 +7,8 @@ import {
   whenHovering,
   cond
 } from 'utils/sc-utils';
+//external
+import $Icon from 'react-fontawesome';
 
 //classnames
 export const buttonIconClassname = 'c-device__button-icon';
@@ -18,8 +20,7 @@ const sizes = {
   }
 };
 
-//external
-import $Icon from 'react-fontawesome';
+
 
 export const Device = styled.div`
   ${flex.vertical}

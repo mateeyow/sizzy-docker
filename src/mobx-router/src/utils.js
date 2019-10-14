@@ -10,8 +10,10 @@ export const viewsForDirector = (views, store) =>
   }, {});
 
 export const getRegexMatches = (string, regexExpression, callback) => {
-  let match;
-  while ((match = regexExpression.exec(string)) !== null) {
+  let match = regexExpression.exec(string);
+
+  while (match !== null) {
+    match = regexExpression.exec(string);
     callback(match);
   }
 };

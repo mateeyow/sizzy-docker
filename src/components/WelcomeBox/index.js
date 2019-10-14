@@ -46,7 +46,7 @@ class WelcomeBoxComponent extends Component {
 
   render() {
     const {store} = this.props;
-    const {app, router} = store;
+    const {app} = store;
     const {loading, showWelcomeContent} = app;
 
     return (

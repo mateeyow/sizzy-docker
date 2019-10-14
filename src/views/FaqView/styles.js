@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {toolbarHeight} from 'styles/sizes';
 import {cond} from 'utils/sc-utils';
 import flex from 'styles/flex';
-import {Link} from 'mobx-router';
 
 export const FaqView = styled.div`
   ${flex.vertical}
